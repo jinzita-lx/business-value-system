@@ -54,8 +54,8 @@ import Hamburger from '@/components/Hamburger'
 import Screenfull from '@/components/Screenfull'
 import SizeSelect from '@/components/SizeSelect'
 import Search from '@/components/HeaderSearch'
-import jinzitaGit from '@/components/jinzita/Git'
-import jinzitaDoc from '@/components/jinzita/Doc'
+import jinzitaGit from '@/components/Jinzita/Git'
+import jinzitaDoc from '@/components/Jinzita/Doc'
 
 export default {
   components: {
