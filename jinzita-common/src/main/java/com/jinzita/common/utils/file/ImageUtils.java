@@ -9,7 +9,7 @@ import java.util.Arrays;
 import org.apache.poi.util.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.jinzita.common.config.jinzitaConfig;
+import com.jinzita.common.config.JinzitaConfig;
 import com.jinzita.common.constant.Constants;
 import com.jinzita.common.utils.StringUtils;
 
@@ -79,7 +79,7 @@ public class ImageUtils
             else
             {
                 // 本机地址
-                String localPath = jinzitaConfig.getProfile();
+                String localPath = JinzitaConfig.getProfile();
                 String downloadPath = localPath + StringUtils.substringAfter(url, Constants.RESOURCE_PREFIX);
                 in = new FileInputStream(downloadPath);
             }

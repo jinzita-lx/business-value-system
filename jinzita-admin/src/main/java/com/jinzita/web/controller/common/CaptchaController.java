@@ -11,7 +11,7 @@ import org.springframework.util.FastByteArrayOutputStream;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.google.code.kaptcha.Producer;
-import com.jinzita.common.config.jinzitaConfig;
+import com.jinzita.common.config.JinzitaConfig;
 import com.jinzita.common.constant.CacheConstants;
 import com.jinzita.common.constant.Constants;
 import com.jinzita.common.core.domain.AjaxResult;
@@ -61,7 +61,7 @@ public class CaptchaController
         BufferedImage image = null;
 
         // 生成验证码
-        String captchaType = jinzitaConfig.getCaptchaType();
+        String captchaType = JinzitaConfig.getCaptchaType();
         if ("math".equals(captchaType))
         {
             String capText = captchaProducerMath.createText();

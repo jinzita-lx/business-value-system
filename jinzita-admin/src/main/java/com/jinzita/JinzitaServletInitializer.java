@@ -8,11 +8,11 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  * 
  * @author jinzita
  */
-public class jinzitaServletInitializer extends SpringBootServletInitializer
+public class JinzitaServletInitializer extends SpringBootServletInitializer
 {
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application)
     {
-        return application.sources(jinzitaApplication.class);
+        return application.sources(JinzitaApplication.class);
     }
 }

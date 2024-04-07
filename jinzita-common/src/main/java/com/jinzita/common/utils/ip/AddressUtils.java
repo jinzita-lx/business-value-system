@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
-import com.jinzita.common.config.jinzitaConfig;
+import com.jinzita.common.config.JinzitaConfig;
 import com.jinzita.common.constant.Constants;
 import com.jinzita.common.utils.StringUtils;
 import com.jinzita.common.utils.http.HttpUtils;
@@ -31,7 +31,7 @@ public class AddressUtils
         {
             return "内网IP";
         }
-        if (jinzitaConfig.isAddressEnabled())
+        if (JinzitaConfig.isAddressEnabled())
         {
             try
             {

@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 import java.util.Objects;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.web.multipart.MultipartFile;
-import com.jinzita.common.config.jinzitaConfig;
+import com.jinzita.common.config.JinzitaConfig;
 import com.jinzita.common.constant.Constants;
 import com.jinzita.common.exception.file.FileNameLengthLimitExceededException;
 import com.jinzita.common.exception.file.FileSizeLimitExceededException;
@@ -35,7 +35,7 @@ public class FileUploadUtils
     /**
      * 默认上传的地址
      */
-    private static String defaultBaseDir = jinzitaConfig.getProfile();
+    private static String defaultBaseDir = JinzitaConfig.getProfile();
 
     public static void setDefaultBaseDir(String defaultBaseDir)
     {
@@ -142,7 +142,7 @@ public class FileUploadUtils
 
     public static final String getPathFileName(String uploadDir, String fileName) throws IOException
     {
-        int dirLastIndex = jinzitaConfig.getProfile().length() + 1;
+        int dirLastIndex = JinzitaConfig.getProfile().length() + 1;
         String currentDir = StringUtils.substring(uploadDir, dirLastIndex);
         return Constants.RESOURCE_PREFIX + "/" + currentDir + "/" + fileName;
     }

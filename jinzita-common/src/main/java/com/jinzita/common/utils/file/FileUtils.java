@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.ArrayUtils;
-import com.jinzita.common.config.jinzitaConfig;
+import com.jinzita.common.config.JinzitaConfig;
 import com.jinzita.common.utils.DateUtils;
 import com.jinzita.common.utils.StringUtils;
 import com.jinzita.common.utils.uuid.IdUtils;
@@ -73,7 +73,7 @@ public class FileUtils
      */
     public static String writeImportBytes(byte[] data) throws IOException
     {
-        return writeBytes(data, jinzitaConfig.getImportPath());
+        return writeBytes(data, JinzitaConfig.getImportPath());
     }
 
     /**

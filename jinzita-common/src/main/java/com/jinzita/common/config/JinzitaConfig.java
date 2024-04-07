@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @ConfigurationProperties(prefix = "jinzita")
-public class jinzitaConfig
+public class JinzitaConfig
 {
     /** 项目名称 */
     private String name;
@@ -67,7 +67,7 @@ public class jinzitaConfig
 
     public void setProfile(String profile)
     {
-        jinzitaConfig.profile = profile;
+        JinzitaConfig.profile = profile;
     }
 
     public static boolean isAddressEnabled()
@@ -77,7 +77,7 @@ public class jinzitaConfig
 
     public void setAddressEnabled(boolean addressEnabled)
     {
-        jinzitaConfig.addressEnabled = addressEnabled;
+        JinzitaConfig.addressEnabled = addressEnabled;
     }
 
     public static String getCaptchaType() {
@@ -85,7 +85,7 @@ public class jinzitaConfig
     }
 
     public void setCaptchaType(String captchaType) {
-        jinzitaConfig.captchaType = captchaType;
+        JinzitaConfig.captchaType = captchaType;
     }
 
     /**

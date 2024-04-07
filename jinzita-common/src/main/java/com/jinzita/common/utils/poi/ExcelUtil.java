@@ -74,7 +74,7 @@ import com.jinzita.common.annotation.Excel;
 import com.jinzita.common.annotation.Excel.ColumnType;
 import com.jinzita.common.annotation.Excel.Type;
 import com.jinzita.common.annotation.Excels;
-import com.jinzita.common.config.jinzitaConfig;
+import com.jinzita.common.config.JinzitaConfig;
 import com.jinzita.common.core.domain.AjaxResult;
 import com.jinzita.common.core.text.Convert;
 import com.jinzita.common.exception.UtilException;
@@ -1393,7 +1393,7 @@ public class ExcelUtil<T>
      */
     public String getAbsoluteFile(String filename)
     {
-        String downloadPath = jinzitaConfig.getDownloadPath() + filename;
+        String downloadPath = JinzitaConfig.getDownloadPath() + filename;
         File desc = new File(downloadPath);
         if (!desc.getParentFile().exists())
         {
