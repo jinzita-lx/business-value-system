@@ -1,4 +1,4 @@
-package com.ruoyi.framework.manager;
+package com.jinzita.framework.manager;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,7 +8,7 @@ import javax.annotation.PreDestroy;
 /**
  * 确保应用退出时能关闭后台线程
  *
- * @author ruoyi
+ * @author jinzita
  */
 @Component
 public class ShutdownManager

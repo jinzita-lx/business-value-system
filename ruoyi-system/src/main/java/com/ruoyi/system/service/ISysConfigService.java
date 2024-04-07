@@ -1,12 +1,12 @@
-package com.ruoyi.system.service;
+package com.jinzita.system.service;
 
 import java.util.List;
-import com.ruoyi.system.domain.SysConfig;
+import com.jinzita.system.domain.SysConfig;
 
 /**
  * 参数配置 服务层
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public interface ISysConfigService
 {

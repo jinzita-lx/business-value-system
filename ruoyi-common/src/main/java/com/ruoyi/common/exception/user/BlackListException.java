@@ -1,9 +1,9 @@
-package com.ruoyi.common.exception.user;
+package com.jinzita.common.exception.user;
 
 /**
  * 黑名单IP异常类
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class BlackListException extends UserException
 {

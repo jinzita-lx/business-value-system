@@ -1,9 +1,9 @@
-package com.ruoyi.common.enums;
+package com.jinzita.common.enums;
 
 /**
  * 业务操作类型
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public enum BusinessType
 {

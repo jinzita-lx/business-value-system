@@ -1,11 +1,11 @@
-package com.ruoyi.common.filter;
+package com.jinzita.common.filter;
 
 import com.alibaba.fastjson2.filter.SimplePropertyPreFilter;
 
 /**
  * 排除JSON敏感属性
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class PropertyPreExcludeFilter extends SimplePropertyPreFilter
 {

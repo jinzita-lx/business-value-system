@@ -1,4 +1,4 @@
-package com.ruoyi.framework.web.service;
+package com.jinzita.framework.web.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,18 +7,18 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import com.ruoyi.common.core.domain.entity.SysUser;
-import com.ruoyi.common.core.domain.model.LoginUser;
-import com.ruoyi.common.enums.UserStatus;
-import com.ruoyi.common.exception.ServiceException;
-import com.ruoyi.common.utils.MessageUtils;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.system.service.ISysUserService;
+import com.jinzita.common.core.domain.entity.SysUser;
+import com.jinzita.common.core.domain.model.LoginUser;
+import com.jinzita.common.enums.UserStatus;
+import com.jinzita.common.exception.ServiceException;
+import com.jinzita.common.utils.MessageUtils;
+import com.jinzita.common.utils.StringUtils;
+import com.jinzita.system.service.ISysUserService;
 
 /**
  * 用户验证处理
  *
- * @author ruoyi
+ * @author jinzita
  */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService

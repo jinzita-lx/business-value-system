@@ -1,4 +1,4 @@
-package com.ruoyi.common.utils.file;
+package com.jinzita.common.utils.file;
 
 import java.io.File;
 import org.apache.commons.lang3.StringUtils;
@@ -6,14 +6,14 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * 文件类型工具类
  *
- * @author ruoyi
+ * @author jinzita
  */
 public class FileTypeUtils
 {
     /**
      * 获取文件类型
      * <p>
-     * 例如: ruoyi.txt, 返回: txt
+     * 例如: jinzita.txt, 返回: txt
      * 
      * @param file 文件名
      * @return 后缀（不含".")
@@ -30,7 +30,7 @@ public class FileTypeUtils
     /**
      * 获取文件类型
      * <p>
-     * 例如: ruoyi.txt, 返回: txt
+     * 例如: jinzita.txt, 返回: txt
      *
      * @param fileName 文件名
      * @return 后缀（不含".")

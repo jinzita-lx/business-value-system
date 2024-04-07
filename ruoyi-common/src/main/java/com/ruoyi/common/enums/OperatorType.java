@@ -1,9 +1,9 @@
-package com.ruoyi.common.enums;
+package com.jinzita.common.enums;
 
 /**
  * 操作人类别
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public enum OperatorType
 {

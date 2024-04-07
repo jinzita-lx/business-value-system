@@ -1,4 +1,4 @@
-package com.ruoyi.common.annotation;
+package com.jinzita.common.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 /**
  * 匿名访问不鉴权注解
  * 
- * @author ruoyi
+ * @author jinzita
  */
 @Target({ ElementType.METHOD, ElementType.TYPE })
 @Retention(RetentionPolicy.RUNTIME)

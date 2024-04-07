@@ -1,4 +1,4 @@
-package com.ruoyi.common.utils.http;
+package com.jinzita.common.utils.http;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,13 +19,13 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.ruoyi.common.constant.Constants;
-import com.ruoyi.common.utils.StringUtils;
+import com.jinzita.common.constant.Constants;
+import com.jinzita.common.utils.StringUtils;
 
 /**
  * 通用http发送方法
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class HttpUtils
 {

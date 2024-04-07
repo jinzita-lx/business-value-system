@@ -1,4 +1,4 @@
-package com.ruoyi.generator.util;
+package com.jinzita.generator.util;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -7,16 +7,16 @@ import java.util.Set;
 import org.apache.velocity.VelocityContext;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
-import com.ruoyi.common.constant.GenConstants;
-import com.ruoyi.common.utils.DateUtils;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.generator.domain.GenTable;
-import com.ruoyi.generator.domain.GenTableColumn;
+import com.jinzita.common.constant.GenConstants;
+import com.jinzita.common.utils.DateUtils;
+import com.jinzita.common.utils.StringUtils;
+import com.jinzita.generator.domain.GenTable;
+import com.jinzita.generator.domain.GenTableColumn;
 
 /**
  * 模板处理工具类
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class VelocityUtils
 {

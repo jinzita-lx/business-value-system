@@ -1,12 +1,12 @@
-package com.ruoyi.common.utils.sql;
+package com.jinzita.common.utils.sql;
 
-import com.ruoyi.common.exception.UtilException;
-import com.ruoyi.common.utils.StringUtils;
+import com.jinzita.common.exception.UtilException;
+import com.jinzita.common.utils.StringUtils;
 
 /**
  * sql操作工具类
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class SqlUtil
 {

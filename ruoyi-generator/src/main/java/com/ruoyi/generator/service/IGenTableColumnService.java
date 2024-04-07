@@ -1,12 +1,12 @@
-package com.ruoyi.generator.service;
+package com.jinzita.generator.service;
 
 import java.util.List;
-import com.ruoyi.generator.domain.GenTableColumn;
+import com.jinzita.generator.domain.GenTableColumn;
 
 /**
  * 业务字段 服务层
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public interface IGenTableColumnService
 {

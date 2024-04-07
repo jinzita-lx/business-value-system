@@ -1,5 +1,5 @@
 {
-  "name": "ruoyi",
+  "name": "jinzita",
   "version": "3.8.7",
   "description": "短视频商业价值后台管理系统",
   "author": "liangxin",
@@ -33,7 +33,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://gitee.com/y_project/RuoYi-Vue.git"
+    "url": "https://gitee.com/y_project/jinzita-Vue.git"
   },
   "dependencies": {
     "@riophae/vue-treeselect": "0.4.0",

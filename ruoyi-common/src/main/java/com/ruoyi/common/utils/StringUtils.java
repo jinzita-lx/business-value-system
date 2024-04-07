@@ -1,4 +1,4 @@
-package com.ruoyi.common.utils;
+package com.jinzita.common.utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -7,13 +7,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.springframework.util.AntPathMatcher;
-import com.ruoyi.common.constant.Constants;
-import com.ruoyi.common.core.text.StrFormatter;
+import com.jinzita.common.constant.Constants;
+import com.jinzita.common.core.text.StrFormatter;
 
 /**
  * 字符串工具类
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class StringUtils extends org.apache.commons.lang3.StringUtils
 {

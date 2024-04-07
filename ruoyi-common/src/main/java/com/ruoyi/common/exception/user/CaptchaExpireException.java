@@ -1,9 +1,9 @@
-package com.ruoyi.common.exception.user;
+package com.jinzita.common.exception.user;
 
 /**
  * 验证码失效异常类
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class CaptchaExpireException extends UserException
 {

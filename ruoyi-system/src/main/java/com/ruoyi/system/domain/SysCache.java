@@ -1,11 +1,11 @@
-package com.ruoyi.system.domain;
+package com.jinzita.system.domain;
 
-import com.ruoyi.common.utils.StringUtils;
+import com.jinzita.common.utils.StringUtils;
 
 /**
  * 缓存信息
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class SysCache
 {

@@ -1,4 +1,4 @@
-package com.ruoyi.framework.aspectj;
+package com.jinzita.framework.aspectj;
 
 import java.util.Objects;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -11,14 +11,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
-import com.ruoyi.common.annotation.DataSource;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.framework.datasource.DynamicDataSourceContextHolder;
+import com.jinzita.common.annotation.DataSource;
+import com.jinzita.common.utils.StringUtils;
+import com.jinzita.framework.datasource.DynamicDataSourceContextHolder;
 
 /**
  * 多数据源处理
  * 
- * @author ruoyi
+ * @author jinzita
  */
 @Aspect
 @Order(1)
@@ -27,8 +27,8 @@ public class DataSourceAspect
 {
     protected Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Pointcut("@annotation(com.ruoyi.common.annotation.DataSource)"
-            + "|| @within(com.ruoyi.common.annotation.DataSource)")
+    @Pointcut("@annotation(com.jinzita.common.annotation.DataSource)"
+            + "|| @within(com.jinzita.common.annotation.DataSource)")
     public void dsPointCut()
     {
 

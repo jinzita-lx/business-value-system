@@ -1,4 +1,4 @@
-package com.ruoyi.framework.web.service;
+package com.jinzita.framework.web.service;
 
 import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,32 +7,32 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
-import com.ruoyi.common.constant.CacheConstants;
-import com.ruoyi.common.constant.Constants;
-import com.ruoyi.common.constant.UserConstants;
-import com.ruoyi.common.core.domain.entity.SysUser;
-import com.ruoyi.common.core.domain.model.LoginUser;
-import com.ruoyi.common.core.redis.RedisCache;
-import com.ruoyi.common.exception.ServiceException;
-import com.ruoyi.common.exception.user.BlackListException;
-import com.ruoyi.common.exception.user.CaptchaException;
-import com.ruoyi.common.exception.user.CaptchaExpireException;
-import com.ruoyi.common.exception.user.UserNotExistsException;
-import com.ruoyi.common.exception.user.UserPasswordNotMatchException;
-import com.ruoyi.common.utils.DateUtils;
-import com.ruoyi.common.utils.MessageUtils;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.common.utils.ip.IpUtils;
-import com.ruoyi.framework.manager.AsyncManager;
-import com.ruoyi.framework.manager.factory.AsyncFactory;
-import com.ruoyi.framework.security.context.AuthenticationContextHolder;
-import com.ruoyi.system.service.ISysConfigService;
-import com.ruoyi.system.service.ISysUserService;
+import com.jinzita.common.constant.CacheConstants;
+import com.jinzita.common.constant.Constants;
+import com.jinzita.common.constant.UserConstants;
+import com.jinzita.common.core.domain.entity.SysUser;
+import com.jinzita.common.core.domain.model.LoginUser;
+import com.jinzita.common.core.redis.RedisCache;
+import com.jinzita.common.exception.ServiceException;
+import com.jinzita.common.exception.user.BlackListException;
+import com.jinzita.common.exception.user.CaptchaException;
+import com.jinzita.common.exception.user.CaptchaExpireException;
+import com.jinzita.common.exception.user.UserNotExistsException;
+import com.jinzita.common.exception.user.UserPasswordNotMatchException;
+import com.jinzita.common.utils.DateUtils;
+import com.jinzita.common.utils.MessageUtils;
+import com.jinzita.common.utils.StringUtils;
+import com.jinzita.common.utils.ip.IpUtils;
+import com.jinzita.framework.manager.AsyncManager;
+import com.jinzita.framework.manager.factory.AsyncFactory;
+import com.jinzita.framework.security.context.AuthenticationContextHolder;
+import com.jinzita.system.service.ISysConfigService;
+import com.jinzita.system.service.ISysUserService;
 
 /**
  * 登录校验方法
  * 
- * @author ruoyi
+ * @author jinzita
  */
 @Component
 public class SysLoginService

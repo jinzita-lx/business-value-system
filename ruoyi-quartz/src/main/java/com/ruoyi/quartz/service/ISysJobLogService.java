@@ -1,12 +1,12 @@
-package com.ruoyi.quartz.service;
+package com.jinzita.quartz.service;
 
 import java.util.List;
-import com.ruoyi.quartz.domain.SysJobLog;
+import com.jinzita.quartz.domain.SysJobLog;
 
 /**
  * 定时任务调度日志信息信息 服务层
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public interface ISysJobLogService
 {

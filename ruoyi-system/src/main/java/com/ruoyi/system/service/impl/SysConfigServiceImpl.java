@@ -1,26 +1,26 @@
-package com.ruoyi.system.service.impl;
+package com.jinzita.system.service.impl;
 
 import java.util.Collection;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.ruoyi.common.annotation.DataSource;
-import com.ruoyi.common.constant.CacheConstants;
-import com.ruoyi.common.constant.UserConstants;
-import com.ruoyi.common.core.redis.RedisCache;
-import com.ruoyi.common.core.text.Convert;
-import com.ruoyi.common.enums.DataSourceType;
-import com.ruoyi.common.exception.ServiceException;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.system.domain.SysConfig;
-import com.ruoyi.system.mapper.SysConfigMapper;
-import com.ruoyi.system.service.ISysConfigService;
+import com.jinzita.common.annotation.DataSource;
+import com.jinzita.common.constant.CacheConstants;
+import com.jinzita.common.constant.UserConstants;
+import com.jinzita.common.core.redis.RedisCache;
+import com.jinzita.common.core.text.Convert;
+import com.jinzita.common.enums.DataSourceType;
+import com.jinzita.common.exception.ServiceException;
+import com.jinzita.common.utils.StringUtils;
+import com.jinzita.system.domain.SysConfig;
+import com.jinzita.system.mapper.SysConfigMapper;
+import com.jinzita.system.service.ISysConfigService;
 
 /**
  * 参数配置 服务层实现
  * 
- * @author ruoyi
+ * @author jinzita
  */
 @Service
 public class SysConfigServiceImpl implements ISysConfigService

@@ -1,9 +1,9 @@
-package com.ruoyi.system.domain;
+package com.jinzita.system.domain;
 
 /**
  * 当前在线会话
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class SysUserOnline
 {

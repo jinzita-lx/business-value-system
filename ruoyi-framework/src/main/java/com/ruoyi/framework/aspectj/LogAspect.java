@@ -1,4 +1,4 @@
-package com.ruoyi.framework.aspectj;
+package com.jinzita.framework.aspectj;
 
 import java.util.Collection;
 import java.util.Map;
@@ -17,24 +17,24 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.multipart.MultipartFile;
 import com.alibaba.fastjson2.JSON;
-import com.ruoyi.common.annotation.Log;
-import com.ruoyi.common.core.domain.entity.SysUser;
-import com.ruoyi.common.core.domain.model.LoginUser;
-import com.ruoyi.common.enums.BusinessStatus;
-import com.ruoyi.common.enums.HttpMethod;
-import com.ruoyi.common.filter.PropertyPreExcludeFilter;
-import com.ruoyi.common.utils.SecurityUtils;
-import com.ruoyi.common.utils.ServletUtils;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.common.utils.ip.IpUtils;
-import com.ruoyi.framework.manager.AsyncManager;
-import com.ruoyi.framework.manager.factory.AsyncFactory;
-import com.ruoyi.system.domain.SysOperLog;
+import com.jinzita.common.annotation.Log;
+import com.jinzita.common.core.domain.entity.SysUser;
+import com.jinzita.common.core.domain.model.LoginUser;
+import com.jinzita.common.enums.BusinessStatus;
+import com.jinzita.common.enums.HttpMethod;
+import com.jinzita.common.filter.PropertyPreExcludeFilter;
+import com.jinzita.common.utils.SecurityUtils;
+import com.jinzita.common.utils.ServletUtils;
+import com.jinzita.common.utils.StringUtils;
+import com.jinzita.common.utils.ip.IpUtils;
+import com.jinzita.framework.manager.AsyncManager;
+import com.jinzita.framework.manager.factory.AsyncFactory;
+import com.jinzita.system.domain.SysOperLog;
 
 /**
  * 操作日志记录处理
  * 
- * @author ruoyi
+ * @author jinzita
  */
 @Aspect
 @Component

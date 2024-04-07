@@ -1,17 +1,17 @@
-package com.ruoyi.common.annotation;
+package com.jinzita.common.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-import com.ruoyi.common.constant.CacheConstants;
-import com.ruoyi.common.enums.LimitType;
+import com.jinzita.common.constant.CacheConstants;
+import com.jinzita.common.enums.LimitType;
 
 /**
  * 限流注解
  * 
- * @author ruoyi
+ * @author jinzita
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

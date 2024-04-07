@@ -1,16 +1,16 @@
-package com.ruoyi.system.service.impl;
+package com.jinzita.system.service.impl;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.ruoyi.system.domain.SysNotice;
-import com.ruoyi.system.mapper.SysNoticeMapper;
-import com.ruoyi.system.service.ISysNoticeService;
+import com.jinzita.system.domain.SysNotice;
+import com.jinzita.system.mapper.SysNoticeMapper;
+import com.jinzita.system.service.ISysNoticeService;
 
 /**
  * 公告 服务层实现
  * 
- * @author ruoyi
+ * @author jinzita
  */
 @Service
 public class SysNoticeServiceImpl implements ISysNoticeService

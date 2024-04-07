@@ -1,4 +1,4 @@
-package com.ruoyi.framework.config;
+package com.jinzita.framework.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -15,15 +15,15 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutFilter;
 import org.springframework.web.filter.CorsFilter;
-import com.ruoyi.framework.config.properties.PermitAllUrlProperties;
-import com.ruoyi.framework.security.filter.JwtAuthenticationTokenFilter;
-import com.ruoyi.framework.security.handle.AuthenticationEntryPointImpl;
-import com.ruoyi.framework.security.handle.LogoutSuccessHandlerImpl;
+import com.jinzita.framework.config.properties.PermitAllUrlProperties;
+import com.jinzita.framework.security.filter.JwtAuthenticationTokenFilter;
+import com.jinzita.framework.security.handle.AuthenticationEntryPointImpl;
+import com.jinzita.framework.security.handle.LogoutSuccessHandlerImpl;
 
 /**
  * spring security配置
  * 
- * @author ruoyi
+ * @author jinzita
  */
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter

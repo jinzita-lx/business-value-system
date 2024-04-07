@@ -1,4 +1,4 @@
-package com.ruoyi.web.controller.monitor;
+package com.jinzita.web.controller.monitor;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -16,15 +16,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.ruoyi.common.constant.CacheConstants;
-import com.ruoyi.common.core.domain.AjaxResult;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.system.domain.SysCache;
+import com.jinzita.common.constant.CacheConstants;
+import com.jinzita.common.core.domain.AjaxResult;
+import com.jinzita.common.utils.StringUtils;
+import com.jinzita.system.domain.SysCache;
 
 /**
  * 缓存监控
  * 
- * @author ruoyi
+ * @author jinzita
  */
 @RestController
 @RequestMapping("/monitor/cache")

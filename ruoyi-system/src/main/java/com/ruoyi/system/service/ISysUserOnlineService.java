@@ -1,12 +1,12 @@
-package com.ruoyi.system.service;
+package com.jinzita.system.service;
 
-import com.ruoyi.common.core.domain.model.LoginUser;
-import com.ruoyi.system.domain.SysUserOnline;
+import com.jinzita.common.core.domain.model.LoginUser;
+import com.jinzita.system.domain.SysUserOnline;
 
 /**
  * 在线用户 服务层
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public interface ISysUserOnlineService
 {

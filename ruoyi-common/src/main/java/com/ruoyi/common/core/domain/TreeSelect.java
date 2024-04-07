@@ -1,16 +1,16 @@
-package com.ruoyi.common.core.domain;
+package com.jinzita.common.core.domain;
 
 import java.io.Serializable;
 import java.util.List;
 import java.util.stream.Collectors;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.ruoyi.common.core.domain.entity.SysDept;
-import com.ruoyi.common.core.domain.entity.SysMenu;
+import com.jinzita.common.core.domain.entity.SysDept;
+import com.jinzita.common.core.domain.entity.SysMenu;
 
 /**
  * Treeselect树结构实体类
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class TreeSelect implements Serializable
 {

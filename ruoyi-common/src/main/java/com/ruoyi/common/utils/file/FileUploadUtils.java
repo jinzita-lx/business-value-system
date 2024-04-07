@@ -1,4 +1,4 @@
-package com.ruoyi.common.utils.file;
+package com.jinzita.common.utils.file;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,19 +6,19 @@ import java.nio.file.Paths;
 import java.util.Objects;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.web.multipart.MultipartFile;
-import com.ruoyi.common.config.RuoYiConfig;
-import com.ruoyi.common.constant.Constants;
-import com.ruoyi.common.exception.file.FileNameLengthLimitExceededException;
-import com.ruoyi.common.exception.file.FileSizeLimitExceededException;
-import com.ruoyi.common.exception.file.InvalidExtensionException;
-import com.ruoyi.common.utils.DateUtils;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.common.utils.uuid.Seq;
+import com.jinzita.common.config.jinzitaConfig;
+import com.jinzita.common.constant.Constants;
+import com.jinzita.common.exception.file.FileNameLengthLimitExceededException;
+import com.jinzita.common.exception.file.FileSizeLimitExceededException;
+import com.jinzita.common.exception.file.InvalidExtensionException;
+import com.jinzita.common.utils.DateUtils;
+import com.jinzita.common.utils.StringUtils;
+import com.jinzita.common.utils.uuid.Seq;
 
 /**
  * 文件上传工具类
  *
- * @author ruoyi
+ * @author jinzita
  */
 public class FileUploadUtils
 {
@@ -35,7 +35,7 @@ public class FileUploadUtils
     /**
      * 默认上传的地址
      */
-    private static String defaultBaseDir = RuoYiConfig.getProfile();
+    private static String defaultBaseDir = jinzitaConfig.getProfile();
 
     public static void setDefaultBaseDir(String defaultBaseDir)
     {
@@ -142,7 +142,7 @@ public class FileUploadUtils
 
     public static final String getPathFileName(String uploadDir, String fileName) throws IOException
     {
-        int dirLastIndex = RuoYiConfig.getProfile().length() + 1;
+        int dirLastIndex = jinzitaConfig.getProfile().length() + 1;
         String currentDir = StringUtils.substring(uploadDir, dirLastIndex);
         return Constants.RESOURCE_PREFIX + "/" + currentDir + "/" + fileName;
     }

@@ -1,4 +1,4 @@
-package com.ruoyi.common.utils.bean;
+package com.jinzita.common.utils.bean;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 /**
  * Bean 工具类
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class BeanUtils extends org.springframework.beans.BeanUtils
 {

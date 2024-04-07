@@ -1,16 +1,16 @@
-package com.ruoyi.system.service.impl;
+package com.jinzita.system.service.impl;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.ruoyi.system.domain.SysOperLog;
-import com.ruoyi.system.mapper.SysOperLogMapper;
-import com.ruoyi.system.service.ISysOperLogService;
+import com.jinzita.system.domain.SysOperLog;
+import com.jinzita.system.mapper.SysOperLogMapper;
+import com.jinzita.system.service.ISysOperLogService;
 
 /**
  * 操作日志 服务层处理
  * 
- * @author ruoyi
+ * @author jinzita
  */
 @Service
 public class SysOperLogServiceImpl implements ISysOperLogService

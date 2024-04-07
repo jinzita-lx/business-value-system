@@ -1,9 +1,9 @@
-package com.ruoyi.common.core.domain.model;
+package com.jinzita.common.core.domain.model;
 
 /**
  * 用户登录对象
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class LoginBody
 {

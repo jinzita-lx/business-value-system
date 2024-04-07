@@ -1,11 +1,11 @@
-package com.ruoyi.system.domain.vo;
+package com.jinzita.system.domain.vo;
 
-import com.ruoyi.common.utils.StringUtils;
+import com.jinzita.common.utils.StringUtils;
 
 /**
  * 路由显示信息
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class MetaVo
 {

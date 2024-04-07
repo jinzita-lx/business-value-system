@@ -1,13 +1,13 @@
-package com.ruoyi.common.core.text;
+package com.jinzita.common.core.text;
 
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import com.ruoyi.common.utils.StringUtils;
+import com.jinzita.common.utils.StringUtils;
 
 /**
  * 字符集工具类
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class CharsetKit
 {

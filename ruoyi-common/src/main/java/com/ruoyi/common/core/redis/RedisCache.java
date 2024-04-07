@@ -1,4 +1,4 @@
-package com.ruoyi.common.core.redis;
+package com.jinzita.common.core.redis;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 /**
  * spring redis 工具类
  *
- * @author ruoyi
+ * @author jinzita
  **/
 @SuppressWarnings(value = { "unchecked", "rawtypes" })
 @Component

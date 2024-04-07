@@ -1,4 +1,4 @@
-package com.ruoyi.common.filter;
+package com.jinzita.common.filter;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,13 +11,13 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.common.enums.HttpMethod;
+import com.jinzita.common.utils.StringUtils;
+import com.jinzita.common.enums.HttpMethod;
 
 /**
  * 防止XSS攻击的过滤器
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class XssFilter implements Filter
 {

@@ -1,4 +1,4 @@
-package com.ruoyi.common.utils.file;
+package com.jinzita.common.utils.file;
 
 import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
@@ -9,14 +9,14 @@ import java.util.Arrays;
 import org.apache.poi.util.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.ruoyi.common.config.RuoYiConfig;
-import com.ruoyi.common.constant.Constants;
-import com.ruoyi.common.utils.StringUtils;
+import com.jinzita.common.config.jinzitaConfig;
+import com.jinzita.common.constant.Constants;
+import com.jinzita.common.utils.StringUtils;
 
 /**
  * 图片处理工具类
  *
- * @author ruoyi
+ * @author jinzita
  */
 public class ImageUtils
 {
@@ -79,7 +79,7 @@ public class ImageUtils
             else
             {
                 // 本机地址
-                String localPath = RuoYiConfig.getProfile();
+                String localPath = jinzitaConfig.getProfile();
                 String downloadPath = localPath + StringUtils.substringAfter(url, Constants.RESOURCE_PREFIX);
                 in = new FileInputStream(downloadPath);
             }

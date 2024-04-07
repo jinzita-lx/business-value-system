@@ -1,12 +1,12 @@
-package com.ruoyi.system.mapper;
+package com.jinzita.system.mapper;
 
 import java.util.List;
-import com.ruoyi.system.domain.SysRoleDept;
+import com.jinzita.system.domain.SysRoleDept;
 
 /**
  * 角色与部门关联表 数据层
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public interface SysRoleDeptMapper
 {

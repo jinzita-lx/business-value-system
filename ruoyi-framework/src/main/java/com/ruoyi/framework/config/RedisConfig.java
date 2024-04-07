@@ -1,4 +1,4 @@
-package com.ruoyi.framework.config;
+package com.jinzita.framework.config;
 
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
@@ -12,7 +12,7 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 /**
  * redis配置
  * 
- * @author ruoyi
+ * @author jinzita
  */
 @Configuration
 @EnableCaching

@@ -1,7 +1,7 @@
-package com.ruoyi.common.core.domain.model;
+package com.jinzita.common.core.domain.model;
 
 import com.alibaba.fastjson2.annotation.JSONField;
-import com.ruoyi.common.core.domain.entity.SysUser;
+import com.jinzita.common.core.domain.entity.SysUser;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
@@ -10,7 +10,7 @@ import java.util.Set;
 /**
  * 登录用户身份权限
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class LoginUser implements UserDetails
 {

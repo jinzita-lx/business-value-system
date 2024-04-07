@@ -1,4 +1,4 @@
-package com.ruoyi.system.service.impl;
+package com.jinzita.system.service.impl;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,27 +8,27 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.ruoyi.common.annotation.DataScope;
-import com.ruoyi.common.constant.UserConstants;
-import com.ruoyi.common.core.domain.entity.SysRole;
-import com.ruoyi.common.core.domain.entity.SysUser;
-import com.ruoyi.common.exception.ServiceException;
-import com.ruoyi.common.utils.SecurityUtils;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.common.utils.spring.SpringUtils;
-import com.ruoyi.system.domain.SysRoleDept;
-import com.ruoyi.system.domain.SysRoleMenu;
-import com.ruoyi.system.domain.SysUserRole;
-import com.ruoyi.system.mapper.SysRoleDeptMapper;
-import com.ruoyi.system.mapper.SysRoleMapper;
-import com.ruoyi.system.mapper.SysRoleMenuMapper;
-import com.ruoyi.system.mapper.SysUserRoleMapper;
-import com.ruoyi.system.service.ISysRoleService;
+import com.jinzita.common.annotation.DataScope;
+import com.jinzita.common.constant.UserConstants;
+import com.jinzita.common.core.domain.entity.SysRole;
+import com.jinzita.common.core.domain.entity.SysUser;
+import com.jinzita.common.exception.ServiceException;
+import com.jinzita.common.utils.SecurityUtils;
+import com.jinzita.common.utils.StringUtils;
+import com.jinzita.common.utils.spring.SpringUtils;
+import com.jinzita.system.domain.SysRoleDept;
+import com.jinzita.system.domain.SysRoleMenu;
+import com.jinzita.system.domain.SysUserRole;
+import com.jinzita.system.mapper.SysRoleDeptMapper;
+import com.jinzita.system.mapper.SysRoleMapper;
+import com.jinzita.system.mapper.SysRoleMenuMapper;
+import com.jinzita.system.mapper.SysUserRoleMapper;
+import com.jinzita.system.service.ISysRoleService;
 
 /**
  * 角色 业务层处理
  * 
- * @author ruoyi
+ * @author jinzita
  */
 @Service
 public class SysRoleServiceImpl implements ISysRoleService

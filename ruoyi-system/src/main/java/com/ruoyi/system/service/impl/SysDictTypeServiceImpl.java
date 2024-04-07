@@ -1,4 +1,4 @@
-package com.ruoyi.system.service.impl;
+package com.jinzita.system.service.impl;
 
 import java.util.Comparator;
 import java.util.List;
@@ -8,20 +8,20 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.ruoyi.common.constant.UserConstants;
-import com.ruoyi.common.core.domain.entity.SysDictData;
-import com.ruoyi.common.core.domain.entity.SysDictType;
-import com.ruoyi.common.exception.ServiceException;
-import com.ruoyi.common.utils.DictUtils;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.system.mapper.SysDictDataMapper;
-import com.ruoyi.system.mapper.SysDictTypeMapper;
-import com.ruoyi.system.service.ISysDictTypeService;
+import com.jinzita.common.constant.UserConstants;
+import com.jinzita.common.core.domain.entity.SysDictData;
+import com.jinzita.common.core.domain.entity.SysDictType;
+import com.jinzita.common.exception.ServiceException;
+import com.jinzita.common.utils.DictUtils;
+import com.jinzita.common.utils.StringUtils;
+import com.jinzita.system.mapper.SysDictDataMapper;
+import com.jinzita.system.mapper.SysDictTypeMapper;
+import com.jinzita.system.service.ISysDictTypeService;
 
 /**
  * 字典 业务层处理
  * 
- * @author ruoyi
+ * @author jinzita
  */
 @Service
 public class SysDictTypeServiceImpl implements ISysDictTypeService

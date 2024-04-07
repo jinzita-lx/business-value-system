@@ -1,17 +1,17 @@
-package com.ruoyi.common.annotation;
+package com.jinzita.common.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-import com.ruoyi.common.enums.BusinessType;
-import com.ruoyi.common.enums.OperatorType;
+import com.jinzita.common.enums.BusinessType;
+import com.jinzita.common.enums.OperatorType;
 
 /**
  * 自定义操作日志记录注解
  * 
- * @author ruoyi
+ * @author jinzita
  *
  */
 @Target({ ElementType.PARAMETER, ElementType.METHOD })

@@ -1,9 +1,9 @@
-package com.ruoyi.common.exception;
+package com.jinzita.common.exception;
 
 /**
  * 业务异常
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public final class ServiceException extends RuntimeException
 {

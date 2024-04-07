@@ -1,9 +1,9 @@
-package com.ruoyi.common.exception.user;
+package com.jinzita.common.exception.user;
 
 /**
  * 用户不存在异常类
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class UserNotExistsException extends UserException
 {

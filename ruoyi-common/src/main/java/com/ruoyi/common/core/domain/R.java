@@ -1,12 +1,12 @@
-package com.ruoyi.common.core.domain;
+package com.jinzita.common.core.domain;
 
 import java.io.Serializable;
-import com.ruoyi.common.constant.HttpStatus;
+import com.jinzita.common.constant.HttpStatus;
 
 /**
  * 响应信息主体
  *
- * @author ruoyi
+ * @author jinzita
  */
 public class R<T> implements Serializable
 {

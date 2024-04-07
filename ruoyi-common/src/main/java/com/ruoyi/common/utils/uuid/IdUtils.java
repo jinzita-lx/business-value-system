@@ -1,9 +1,9 @@
-package com.ruoyi.common.utils.uuid;
+package com.jinzita.common.utils.uuid;
 
 /**
  * ID生成器工具类
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class IdUtils
 {

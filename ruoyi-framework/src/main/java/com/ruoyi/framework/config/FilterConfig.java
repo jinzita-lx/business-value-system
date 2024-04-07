@@ -1,4 +1,4 @@
-package com.ruoyi.framework.config;
+package com.jinzita.framework.config;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,14 +8,14 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import com.ruoyi.common.filter.RepeatableFilter;
-import com.ruoyi.common.filter.XssFilter;
-import com.ruoyi.common.utils.StringUtils;
+import com.jinzita.common.filter.RepeatableFilter;
+import com.jinzita.common.filter.XssFilter;
+import com.jinzita.common.utils.StringUtils;
 
 /**
  * Filter配置
  *
- * @author ruoyi
+ * @author jinzita
  */
 @Configuration
 public class FilterConfig

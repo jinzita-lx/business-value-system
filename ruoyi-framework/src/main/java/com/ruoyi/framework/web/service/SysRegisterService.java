@@ -1,27 +1,27 @@
-package com.ruoyi.framework.web.service;
+package com.jinzita.framework.web.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import com.ruoyi.common.constant.CacheConstants;
-import com.ruoyi.common.constant.Constants;
-import com.ruoyi.common.constant.UserConstants;
-import com.ruoyi.common.core.domain.entity.SysUser;
-import com.ruoyi.common.core.domain.model.RegisterBody;
-import com.ruoyi.common.core.redis.RedisCache;
-import com.ruoyi.common.exception.user.CaptchaException;
-import com.ruoyi.common.exception.user.CaptchaExpireException;
-import com.ruoyi.common.utils.MessageUtils;
-import com.ruoyi.common.utils.SecurityUtils;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.framework.manager.AsyncManager;
-import com.ruoyi.framework.manager.factory.AsyncFactory;
-import com.ruoyi.system.service.ISysConfigService;
-import com.ruoyi.system.service.ISysUserService;
+import com.jinzita.common.constant.CacheConstants;
+import com.jinzita.common.constant.Constants;
+import com.jinzita.common.constant.UserConstants;
+import com.jinzita.common.core.domain.entity.SysUser;
+import com.jinzita.common.core.domain.model.RegisterBody;
+import com.jinzita.common.core.redis.RedisCache;
+import com.jinzita.common.exception.user.CaptchaException;
+import com.jinzita.common.exception.user.CaptchaExpireException;
+import com.jinzita.common.utils.MessageUtils;
+import com.jinzita.common.utils.SecurityUtils;
+import com.jinzita.common.utils.StringUtils;
+import com.jinzita.framework.manager.AsyncManager;
+import com.jinzita.framework.manager.factory.AsyncFactory;
+import com.jinzita.system.service.ISysConfigService;
+import com.jinzita.system.service.ISysUserService;
 
 /**
  * 注册校验方法
  * 
- * @author ruoyi
+ * @author jinzita
  */
 @Component
 public class SysRegisterService

@@ -1,9 +1,9 @@
-package com.ruoyi.common.enums;
+package com.jinzita.common.enums;
 
 /**
  * 操作状态
  * 
- * @author ruoyi
+ * @author jinzita
  *
  */
 public enum BusinessStatus

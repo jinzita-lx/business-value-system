@@ -1,9 +1,9 @@
-package com.ruoyi.common.utils.sign;
+package com.jinzita.common.utils.sign;
 
 /**
  * Base64工具类
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public final class Base64
 {

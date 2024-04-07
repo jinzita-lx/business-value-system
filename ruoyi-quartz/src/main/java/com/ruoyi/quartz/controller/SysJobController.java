@@ -1,4 +1,4 @@
-package com.ruoyi.quartz.controller;
+package com.jinzita.quartz.controller;
 
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
@@ -13,24 +13,24 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.ruoyi.common.annotation.Log;
-import com.ruoyi.common.constant.Constants;
-import com.ruoyi.common.core.controller.BaseController;
-import com.ruoyi.common.core.domain.AjaxResult;
-import com.ruoyi.common.core.page.TableDataInfo;
-import com.ruoyi.common.enums.BusinessType;
-import com.ruoyi.common.exception.job.TaskException;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.common.utils.poi.ExcelUtil;
-import com.ruoyi.quartz.domain.SysJob;
-import com.ruoyi.quartz.service.ISysJobService;
-import com.ruoyi.quartz.util.CronUtils;
-import com.ruoyi.quartz.util.ScheduleUtils;
+import com.jinzita.common.annotation.Log;
+import com.jinzita.common.constant.Constants;
+import com.jinzita.common.core.controller.BaseController;
+import com.jinzita.common.core.domain.AjaxResult;
+import com.jinzita.common.core.page.TableDataInfo;
+import com.jinzita.common.enums.BusinessType;
+import com.jinzita.common.exception.job.TaskException;
+import com.jinzita.common.utils.StringUtils;
+import com.jinzita.common.utils.poi.ExcelUtil;
+import com.jinzita.quartz.domain.SysJob;
+import com.jinzita.quartz.service.ISysJobService;
+import com.jinzita.quartz.util.CronUtils;
+import com.jinzita.quartz.util.ScheduleUtils;
 
 /**
  * 调度任务信息操作处理
  * 
- * @author ruoyi
+ * @author jinzita
  */
 @RestController
 @RequestMapping("/monitor/job")

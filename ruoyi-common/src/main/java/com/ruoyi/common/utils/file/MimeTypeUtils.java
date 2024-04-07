@@ -1,9 +1,9 @@
-package com.ruoyi.common.utils.file;
+package com.jinzita.common.utils.file;
 
 /**
  * 媒体类型工具类
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class MimeTypeUtils
 {

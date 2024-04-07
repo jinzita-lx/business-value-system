@@ -1,4 +1,4 @@
-package com.ruoyi.framework.web.service;
+package com.jinzita.framework.web.service;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,15 +9,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import com.ruoyi.common.constant.CacheConstants;
-import com.ruoyi.common.constant.Constants;
-import com.ruoyi.common.core.domain.model.LoginUser;
-import com.ruoyi.common.core.redis.RedisCache;
-import com.ruoyi.common.utils.ServletUtils;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.common.utils.ip.AddressUtils;
-import com.ruoyi.common.utils.ip.IpUtils;
-import com.ruoyi.common.utils.uuid.IdUtils;
+import com.jinzita.common.constant.CacheConstants;
+import com.jinzita.common.constant.Constants;
+import com.jinzita.common.core.domain.model.LoginUser;
+import com.jinzita.common.core.redis.RedisCache;
+import com.jinzita.common.utils.ServletUtils;
+import com.jinzita.common.utils.StringUtils;
+import com.jinzita.common.utils.ip.AddressUtils;
+import com.jinzita.common.utils.ip.IpUtils;
+import com.jinzita.common.utils.uuid.IdUtils;
 import eu.bitwalker.useragentutils.UserAgent;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -26,7 +26,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 /**
  * token验证处理
  *
- * @author ruoyi
+ * @author jinzita
  */
 @Component
 public class TokenService

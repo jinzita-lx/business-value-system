@@ -1,9 +1,9 @@
-package com.ruoyi.common.constant;
+package com.jinzita.common.constant;
 
 /**
  * 返回状态码
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class HttpStatus
 {

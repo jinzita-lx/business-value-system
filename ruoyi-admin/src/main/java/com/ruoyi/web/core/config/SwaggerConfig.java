@@ -1,4 +1,4 @@
-package com.ruoyi.web.core.config;
+package com.jinzita.web.core.config;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import com.ruoyi.common.config.RuoYiConfig;
+import com.jinzita.common.config.jinzitaConfig;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.models.auth.In;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -25,14 +25,14 @@ import springfox.documentation.spring.web.plugins.Docket;
 /**
  * Swagger2的接口配置
  * 
- * @author ruoyi
+ * @author jinzita
  */
 @Configuration
 public class SwaggerConfig
 {
     /** 系统基础配置 */
     @Autowired
-    private RuoYiConfig ruoyiConfig;
+    private jinzitaConfig jinzitaConfig;
 
     /** 是否开启swagger */
     @Value("${swagger.enabled}")
@@ -58,7 +58,7 @@ public class SwaggerConfig
                 // 扫描所有有注解的api，用这种方式更灵活
                 .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
                 // 扫描指定包中的swagger注解
-                // .apis(RequestHandlerSelectors.basePackage("com.ruoyi.project.tool.swagger"))
+                // .apis(RequestHandlerSelectors.basePackage("com.jinzita.project.tool.swagger"))
                 // 扫描所有 .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.any())
                 .build()
@@ -117,9 +117,9 @@ public class SwaggerConfig
                 // 描述
                 .description("描述：用于管理集团旗下公司的人员信息,具体包括XXX,XXX模块...")
                 // 作者信息
-                .contact(new Contact(ruoyiConfig.getName(), null, null))
+                .contact(new Contact(jinzitaConfig.getName(), null, null))
                 // 版本
-                .version("版本号:" + ruoyiConfig.getVersion())
+                .version("版本号:" + jinzitaConfig.getVersion())
                 .build();
     }
 }

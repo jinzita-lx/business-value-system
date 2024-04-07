@@ -1,16 +1,16 @@
-package com.ruoyi.system.service.impl;
+package com.jinzita.system.service.impl;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.ruoyi.system.domain.SysLogininfor;
-import com.ruoyi.system.mapper.SysLogininforMapper;
-import com.ruoyi.system.service.ISysLogininforService;
+import com.jinzita.system.domain.SysLogininfor;
+import com.jinzita.system.mapper.SysLogininforMapper;
+import com.jinzita.system.service.ISysLogininforService;
 
 /**
  * 系统访问日志情况信息 服务层处理
  * 
- * @author ruoyi
+ * @author jinzita
  */
 @Service
 public class SysLogininforServiceImpl implements ISysLogininforService

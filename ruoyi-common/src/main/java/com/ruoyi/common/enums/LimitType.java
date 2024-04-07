@@ -1,9 +1,9 @@
-package com.ruoyi.common.enums;
+package com.jinzita.common.enums;
 
 /**
  * 限流类型
  *
- * @author ruoyi
+ * @author jinzita
  */
 
 public enum LimitType

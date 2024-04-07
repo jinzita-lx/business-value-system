@@ -1,17 +1,17 @@
-package com.ruoyi.generator.util;
+package com.jinzita.generator.util;
 
 import java.util.Arrays;
 import org.apache.commons.lang3.RegExUtils;
-import com.ruoyi.common.constant.GenConstants;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.generator.config.GenConfig;
-import com.ruoyi.generator.domain.GenTable;
-import com.ruoyi.generator.domain.GenTableColumn;
+import com.jinzita.common.constant.GenConstants;
+import com.jinzita.common.utils.StringUtils;
+import com.jinzita.generator.config.GenConfig;
+import com.jinzita.generator.domain.GenTable;
+import com.jinzita.generator.domain.GenTableColumn;
 
 /**
  * 代码生成器 工具类
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class GenUtils
 {

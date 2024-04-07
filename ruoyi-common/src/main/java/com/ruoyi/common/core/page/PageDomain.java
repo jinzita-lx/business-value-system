@@ -1,11 +1,11 @@
-package com.ruoyi.common.core.page;
+package com.jinzita.common.core.page;
 
-import com.ruoyi.common.utils.StringUtils;
+import com.jinzita.common.utils.StringUtils;
 
 /**
  * 分页数据
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class PageDomain
 {

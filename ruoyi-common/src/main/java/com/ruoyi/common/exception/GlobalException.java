@@ -1,9 +1,9 @@
-package com.ruoyi.common.exception;
+package com.jinzita.common.exception;
 
 /**
  * 全局异常
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class GlobalException extends RuntimeException
 {

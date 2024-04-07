@@ -1,17 +1,17 @@
-package com.ruoyi.system.domain;
+package com.jinzita.system.domain;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import com.ruoyi.common.annotation.Excel;
-import com.ruoyi.common.annotation.Excel.ColumnType;
-import com.ruoyi.common.core.domain.BaseEntity;
+import com.jinzita.common.annotation.Excel;
+import com.jinzita.common.annotation.Excel.ColumnType;
+import com.jinzita.common.core.domain.BaseEntity;
 
 /**
  * 参数配置表 sys_config
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class SysConfig extends BaseEntity
 {

@@ -1,9 +1,9 @@
-package com.ruoyi.common.constant;
+package com.jinzita.common.constant;
 
 /**
  * 代码生成通用常量
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class GenConstants
 {

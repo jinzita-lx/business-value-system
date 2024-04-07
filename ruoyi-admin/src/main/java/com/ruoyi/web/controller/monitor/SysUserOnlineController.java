@@ -1,4 +1,4 @@
-package com.ruoyi.web.controller.monitor;
+package com.jinzita.web.controller.monitor;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -11,22 +11,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.ruoyi.common.annotation.Log;
-import com.ruoyi.common.constant.CacheConstants;
-import com.ruoyi.common.core.controller.BaseController;
-import com.ruoyi.common.core.domain.AjaxResult;
-import com.ruoyi.common.core.domain.model.LoginUser;
-import com.ruoyi.common.core.page.TableDataInfo;
-import com.ruoyi.common.core.redis.RedisCache;
-import com.ruoyi.common.enums.BusinessType;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.system.domain.SysUserOnline;
-import com.ruoyi.system.service.ISysUserOnlineService;
+import com.jinzita.common.annotation.Log;
+import com.jinzita.common.constant.CacheConstants;
+import com.jinzita.common.core.controller.BaseController;
+import com.jinzita.common.core.domain.AjaxResult;
+import com.jinzita.common.core.domain.model.LoginUser;
+import com.jinzita.common.core.page.TableDataInfo;
+import com.jinzita.common.core.redis.RedisCache;
+import com.jinzita.common.enums.BusinessType;
+import com.jinzita.common.utils.StringUtils;
+import com.jinzita.system.domain.SysUserOnline;
+import com.jinzita.system.service.ISysUserOnlineService;
 
 /**
  * 在线用户监控
  * 
- * @author ruoyi
+ * @author jinzita
  */
 @RestController
 @RequestMapping("/monitor/online")

@@ -1,11 +1,11 @@
-package com.ruoyi.common.exception.user;
+package com.jinzita.common.exception.user;
 
-import com.ruoyi.common.exception.base.BaseException;
+import com.jinzita.common.exception.base.BaseException;
 
 /**
  * 用户信息异常类
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class UserException extends BaseException
 {

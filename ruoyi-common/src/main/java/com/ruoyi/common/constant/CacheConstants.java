@@ -1,9 +1,9 @@
-package com.ruoyi.common.constant;
+package com.jinzita.common.constant;
 
 /**
  * 缓存的key 常量
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class CacheConstants
 {

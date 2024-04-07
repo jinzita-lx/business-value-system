@@ -1,4 +1,4 @@
-package com.ruoyi.common.filter;
+package com.jinzita.common.filter;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -9,13 +9,13 @@ import javax.servlet.ServletInputStream;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
-import com.ruoyi.common.utils.http.HttpHelper;
-import com.ruoyi.common.constant.Constants;
+import com.jinzita.common.utils.http.HttpHelper;
+import com.jinzita.common.constant.Constants;
 
 /**
  * 构建可重复读取inputStream的request
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class RepeatedlyRequestWrapper extends HttpServletRequestWrapper
 {

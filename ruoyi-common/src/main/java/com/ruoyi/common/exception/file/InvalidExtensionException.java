@@ -1,11 +1,11 @@
-package com.ruoyi.common.exception.file;
+package com.jinzita.common.exception.file;
 
 import java.util.Arrays;
 
 /**
  * 文件上传 误异常类
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class InvalidExtensionException extends FileUploadException
 {

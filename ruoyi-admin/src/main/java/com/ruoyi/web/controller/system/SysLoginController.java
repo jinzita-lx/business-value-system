@@ -1,4 +1,4 @@
-package com.ruoyi.web.controller.system;
+package com.jinzita.web.controller.system;
 
 import java.util.List;
 import java.util.Set;
@@ -7,20 +7,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.ruoyi.common.constant.Constants;
-import com.ruoyi.common.core.domain.AjaxResult;
-import com.ruoyi.common.core.domain.entity.SysMenu;
-import com.ruoyi.common.core.domain.entity.SysUser;
-import com.ruoyi.common.core.domain.model.LoginBody;
-import com.ruoyi.common.utils.SecurityUtils;
-import com.ruoyi.framework.web.service.SysLoginService;
-import com.ruoyi.framework.web.service.SysPermissionService;
-import com.ruoyi.system.service.ISysMenuService;
+import com.jinzita.common.constant.Constants;
+import com.jinzita.common.core.domain.AjaxResult;
+import com.jinzita.common.core.domain.entity.SysMenu;
+import com.jinzita.common.core.domain.entity.SysUser;
+import com.jinzita.common.core.domain.model.LoginBody;
+import com.jinzita.common.utils.SecurityUtils;
+import com.jinzita.framework.web.service.SysLoginService;
+import com.jinzita.framework.web.service.SysPermissionService;
+import com.jinzita.system.service.ISysMenuService;
 
 /**
  * 登录验证
  * 
- * @author ruoyi
+ * @author jinzita
  */
 @RestController
 public class SysLoginController

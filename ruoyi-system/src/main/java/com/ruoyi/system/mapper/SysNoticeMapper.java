@@ -1,12 +1,12 @@
-package com.ruoyi.system.mapper;
+package com.jinzita.system.mapper;
 
 import java.util.List;
-import com.ruoyi.system.domain.SysNotice;
+import com.jinzita.system.domain.SysNotice;
 
 /**
  * 通知公告表 数据层
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public interface SysNoticeMapper
 {

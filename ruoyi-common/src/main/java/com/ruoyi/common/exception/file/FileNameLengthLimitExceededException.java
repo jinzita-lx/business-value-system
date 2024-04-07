@@ -1,9 +1,9 @@
-package com.ruoyi.common.exception.file;
+package com.jinzita.common.exception.file;
 
 /**
  * 文件名称超长限制异常类
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class FileNameLengthLimitExceededException extends FileException
 {

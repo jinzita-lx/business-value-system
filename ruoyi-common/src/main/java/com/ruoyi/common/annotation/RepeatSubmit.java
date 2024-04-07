@@ -1,4 +1,4 @@
-package com.ruoyi.common.annotation;
+package com.jinzita.common.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 /**
  * 自定义注解防止表单重复提交
  * 
- * @author ruoyi
+ * @author jinzita
  *
  */
 @Inherited

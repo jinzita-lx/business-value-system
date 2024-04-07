@@ -1,12 +1,12 @@
-package com.ruoyi.system.mapper;
+package com.jinzita.system.mapper;
 
 import java.util.List;
-import com.ruoyi.system.domain.SysPost;
+import com.jinzita.system.domain.SysPost;
 
 /**
  * 岗位信息 数据层
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public interface SysPostMapper
 {

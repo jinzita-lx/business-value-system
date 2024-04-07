@@ -1,4 +1,4 @@
-package com.ruoyi.common.utils;
+package com.jinzita.common.utils;
 
 import java.util.Collection;
 import java.util.List;
@@ -7,16 +7,16 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.util.PatternMatchUtils;
-import com.ruoyi.common.constant.Constants;
-import com.ruoyi.common.constant.HttpStatus;
-import com.ruoyi.common.core.domain.entity.SysRole;
-import com.ruoyi.common.core.domain.model.LoginUser;
-import com.ruoyi.common.exception.ServiceException;
+import com.jinzita.common.constant.Constants;
+import com.jinzita.common.constant.HttpStatus;
+import com.jinzita.common.core.domain.entity.SysRole;
+import com.jinzita.common.core.domain.model.LoginUser;
+import com.jinzita.common.exception.ServiceException;
 
 /**
  * 安全服务工具类
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class SecurityUtils
 {

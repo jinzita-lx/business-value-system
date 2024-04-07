@@ -1,25 +1,25 @@
-package com.ruoyi.framework.manager.factory;
+package com.jinzita.framework.manager.factory;
 
 import java.util.TimerTask;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.ruoyi.common.constant.Constants;
-import com.ruoyi.common.utils.LogUtils;
-import com.ruoyi.common.utils.ServletUtils;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.common.utils.ip.AddressUtils;
-import com.ruoyi.common.utils.ip.IpUtils;
-import com.ruoyi.common.utils.spring.SpringUtils;
-import com.ruoyi.system.domain.SysLogininfor;
-import com.ruoyi.system.domain.SysOperLog;
-import com.ruoyi.system.service.ISysLogininforService;
-import com.ruoyi.system.service.ISysOperLogService;
+import com.jinzita.common.constant.Constants;
+import com.jinzita.common.utils.LogUtils;
+import com.jinzita.common.utils.ServletUtils;
+import com.jinzita.common.utils.StringUtils;
+import com.jinzita.common.utils.ip.AddressUtils;
+import com.jinzita.common.utils.ip.IpUtils;
+import com.jinzita.common.utils.spring.SpringUtils;
+import com.jinzita.system.domain.SysLogininfor;
+import com.jinzita.system.domain.SysOperLog;
+import com.jinzita.system.service.ISysLogininforService;
+import com.jinzita.system.service.ISysOperLogService;
 import eu.bitwalker.useragentutils.UserAgent;
 
 /**
  * 异步工厂（产生任务用）
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class AsyncFactory
 {

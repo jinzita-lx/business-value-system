@@ -1,4 +1,4 @@
-package com.ruoyi.quartz.util;
+package com.jinzita.quartz.util;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -7,7 +7,7 @@ import org.quartz.CronExpression;
 /**
  * cron表达式工具类
  * 
- * @author ruoyi
+ * @author jinzita
  *
  */
 public class CronUtils

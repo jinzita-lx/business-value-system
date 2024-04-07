@@ -1,6 +1,6 @@
-package com.ruoyi.framework.config;
+package com.jinzita.framework.config;
 
-import com.ruoyi.common.utils.Threads;
+import com.jinzita.common.utils.Threads;
 import org.apache.commons.lang3.concurrent.BasicThreadFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +12,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 /**
  * 线程池配置
  *
- * @author ruoyi
+ * @author jinzita
  **/
 @Configuration
 public class ThreadPoolConfig

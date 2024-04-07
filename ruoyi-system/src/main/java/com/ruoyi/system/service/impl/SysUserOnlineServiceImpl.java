@@ -1,15 +1,15 @@
-package com.ruoyi.system.service.impl;
+package com.jinzita.system.service.impl;
 
 import org.springframework.stereotype.Service;
-import com.ruoyi.common.core.domain.model.LoginUser;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.system.domain.SysUserOnline;
-import com.ruoyi.system.service.ISysUserOnlineService;
+import com.jinzita.common.core.domain.model.LoginUser;
+import com.jinzita.common.utils.StringUtils;
+import com.jinzita.system.domain.SysUserOnline;
+import com.jinzita.system.service.ISysUserOnlineService;
 
 /**
  * 在线用户 服务层处理
  * 
- * @author ruoyi
+ * @author jinzita
  */
 @Service
 public class SysUserOnlineServiceImpl implements ISysUserOnlineService

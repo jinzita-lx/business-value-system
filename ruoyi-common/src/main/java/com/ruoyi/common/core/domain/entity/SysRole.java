@@ -1,4 +1,4 @@
-package com.ruoyi.common.core.domain.entity;
+package com.jinzita.common.core.domain.entity;
 
 import java.util.Set;
 import javax.validation.constraints.NotBlank;
@@ -6,14 +6,14 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import com.ruoyi.common.annotation.Excel;
-import com.ruoyi.common.annotation.Excel.ColumnType;
-import com.ruoyi.common.core.domain.BaseEntity;
+import com.jinzita.common.annotation.Excel;
+import com.jinzita.common.annotation.Excel.ColumnType;
+import com.jinzita.common.core.domain.BaseEntity;
 
 /**
  * 角色表 sys_role
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class SysRole extends BaseEntity
 {

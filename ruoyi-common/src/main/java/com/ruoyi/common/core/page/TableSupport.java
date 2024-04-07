@@ -1,12 +1,12 @@
-package com.ruoyi.common.core.page;
+package com.jinzita.common.core.page;
 
-import com.ruoyi.common.core.text.Convert;
-import com.ruoyi.common.utils.ServletUtils;
+import com.jinzita.common.core.text.Convert;
+import com.jinzita.common.utils.ServletUtils;
 
 /**
  * 表格数据处理
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class TableSupport
 {

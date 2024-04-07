@@ -1,4 +1,4 @@
-package com.ruoyi.framework.config.properties;
+package com.jinzita.framework.config.properties;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,12 +16,12 @@ import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
-import com.ruoyi.common.annotation.Anonymous;
+import com.jinzita.common.annotation.Anonymous;
 
 /**
  * 设置Anonymous注解允许匿名访问的url
  * 
- * @author ruoyi
+ * @author jinzita
  */
 @Configuration
 public class PermitAllUrlProperties implements InitializingBean, ApplicationContextAware

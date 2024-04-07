@@ -1,14 +1,14 @@
-package com.ruoyi.common.utils;
+package com.jinzita.common.utils;
 
 import com.github.pagehelper.PageHelper;
-import com.ruoyi.common.core.page.PageDomain;
-import com.ruoyi.common.core.page.TableSupport;
-import com.ruoyi.common.utils.sql.SqlUtil;
+import com.jinzita.common.core.page.PageDomain;
+import com.jinzita.common.core.page.TableSupport;
+import com.jinzita.common.utils.sql.SqlUtil;
 
 /**
  * 分页工具类
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class PageUtils extends PageHelper
 {

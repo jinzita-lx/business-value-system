@@ -1,4 +1,4 @@
-package com.ruoyi.generator.service;
+package com.jinzita.generator.service;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -23,23 +23,23 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
-import com.ruoyi.common.constant.Constants;
-import com.ruoyi.common.constant.GenConstants;
-import com.ruoyi.common.core.text.CharsetKit;
-import com.ruoyi.common.exception.ServiceException;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.generator.domain.GenTable;
-import com.ruoyi.generator.domain.GenTableColumn;
-import com.ruoyi.generator.mapper.GenTableColumnMapper;
-import com.ruoyi.generator.mapper.GenTableMapper;
-import com.ruoyi.generator.util.GenUtils;
-import com.ruoyi.generator.util.VelocityInitializer;
-import com.ruoyi.generator.util.VelocityUtils;
+import com.jinzita.common.constant.Constants;
+import com.jinzita.common.constant.GenConstants;
+import com.jinzita.common.core.text.CharsetKit;
+import com.jinzita.common.exception.ServiceException;
+import com.jinzita.common.utils.StringUtils;
+import com.jinzita.generator.domain.GenTable;
+import com.jinzita.generator.domain.GenTableColumn;
+import com.jinzita.generator.mapper.GenTableColumnMapper;
+import com.jinzita.generator.mapper.GenTableMapper;
+import com.jinzita.generator.util.GenUtils;
+import com.jinzita.generator.util.VelocityInitializer;
+import com.jinzita.generator.util.VelocityUtils;
 
 /**
  * 业务 服务层实现
  * 
- * @author ruoyi
+ * @author jinzita
  */
 @Service
 public class GenTableServiceImpl implements IGenTableService

@@ -1,14 +1,14 @@
-package com.ruoyi.common.core.domain;
+package com.jinzita.common.core.domain;
 
 import java.util.HashMap;
 import java.util.Objects;
-import com.ruoyi.common.constant.HttpStatus;
-import com.ruoyi.common.utils.StringUtils;
+import com.jinzita.common.constant.HttpStatus;
+import com.jinzita.common.utils.StringUtils;
 
 /**
  * 操作消息提醒
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class AjaxResult extends HashMap<String, Object>
 {

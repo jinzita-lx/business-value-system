@@ -1,12 +1,12 @@
-package com.ruoyi.system.service;
+package com.jinzita.system.service;
 
 import java.util.List;
-import com.ruoyi.system.domain.SysPost;
+import com.jinzita.system.domain.SysPost;
 
 /**
  * 岗位信息 服务层
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public interface ISysPostService
 {

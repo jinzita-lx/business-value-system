@@ -1,15 +1,15 @@
-package com.ruoyi.system.domain;
+package com.jinzita.system.domain;
 
 import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.ruoyi.common.annotation.Excel;
-import com.ruoyi.common.annotation.Excel.ColumnType;
-import com.ruoyi.common.core.domain.BaseEntity;
+import com.jinzita.common.annotation.Excel;
+import com.jinzita.common.annotation.Excel.ColumnType;
+import com.jinzita.common.core.domain.BaseEntity;
 
 /**
  * 系统访问记录表 sys_logininfor
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class SysLogininfor extends BaseEntity
 {

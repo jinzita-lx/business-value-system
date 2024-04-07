@@ -1,17 +1,17 @@
-package com.ruoyi.generator.domain;
+package com.jinzita.generator.domain;
 
 import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import org.apache.commons.lang3.ArrayUtils;
-import com.ruoyi.common.constant.GenConstants;
-import com.ruoyi.common.core.domain.BaseEntity;
-import com.ruoyi.common.utils.StringUtils;
+import com.jinzita.common.constant.GenConstants;
+import com.jinzita.common.core.domain.BaseEntity;
+import com.jinzita.common.utils.StringUtils;
 
 /**
  * 业务表 gen_table
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class GenTable extends BaseEntity
 {

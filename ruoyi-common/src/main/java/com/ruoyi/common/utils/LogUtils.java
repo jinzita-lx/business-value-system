@@ -1,9 +1,9 @@
-package com.ruoyi.common.utils;
+package com.jinzita.common.utils;
 
 /**
  * 处理并记录日志文件
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class LogUtils
 {

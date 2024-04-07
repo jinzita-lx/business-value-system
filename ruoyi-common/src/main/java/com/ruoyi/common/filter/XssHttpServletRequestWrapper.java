@@ -1,4 +1,4 @@
-package com.ruoyi.common.filter;
+package com.jinzita.common.filter;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServletRequestWrapper;
 import org.apache.commons.io.IOUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.common.utils.html.EscapeUtil;
+import com.jinzita.common.utils.StringUtils;
+import com.jinzita.common.utils.html.EscapeUtil;
 
 /**
  * XSS过滤处理
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper
 {

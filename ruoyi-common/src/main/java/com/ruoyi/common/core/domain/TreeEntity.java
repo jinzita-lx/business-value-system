@@ -1,4 +1,4 @@
-package com.ruoyi.common.core.domain;
+package com.jinzita.common.core.domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Tree基类
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class TreeEntity extends BaseEntity
 {

@@ -1,4 +1,4 @@
-package com.ruoyi.framework.config;
+package com.jinzita.framework.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,12 +7,12 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
-import com.ruoyi.common.constant.Constants;
+import com.jinzita.common.constant.Constants;
 
 /**
  * 资源文件配置加载
  * 
- * @author ruoyi
+ * @author jinzita
  */
 @Configuration
 public class I18nConfig implements WebMvcConfigurer

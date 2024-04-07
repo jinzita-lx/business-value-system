@@ -1,4 +1,4 @@
-package com.ruoyi.common.utils.bean;
+package com.jinzita.common.utils.bean;
 
 import java.util.Set;
 import javax.validation.ConstraintViolation;
@@ -8,7 +8,7 @@ import javax.validation.Validator;
 /**
  * bean对象属性验证
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class BeanValidators
 {

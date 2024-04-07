@@ -1,4 +1,4 @@
-package com.ruoyi.common.utils.http;
+package com.jinzita.common.utils.http;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 /**
  * 通用http工具封装
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class HttpHelper
 {

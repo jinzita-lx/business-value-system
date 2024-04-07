@@ -1,12 +1,12 @@
-package com.ruoyi.system.mapper;
+package com.jinzita.system.mapper;
 
 import java.util.List;
-import com.ruoyi.system.domain.SysLogininfor;
+import com.jinzita.system.domain.SysLogininfor;
 
 /**
  * 系统访问日志情况信息 数据层
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public interface SysLogininforMapper
 {

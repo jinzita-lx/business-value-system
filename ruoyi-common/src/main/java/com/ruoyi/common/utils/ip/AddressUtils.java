@@ -1,18 +1,18 @@
-package com.ruoyi.common.utils.ip;
+package com.jinzita.common.utils.ip;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
-import com.ruoyi.common.config.RuoYiConfig;
-import com.ruoyi.common.constant.Constants;
-import com.ruoyi.common.utils.StringUtils;
-import com.ruoyi.common.utils.http.HttpUtils;
+import com.jinzita.common.config.jinzitaConfig;
+import com.jinzita.common.constant.Constants;
+import com.jinzita.common.utils.StringUtils;
+import com.jinzita.common.utils.http.HttpUtils;
 
 /**
  * 获取地址类
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class AddressUtils
 {
@@ -31,7 +31,7 @@ public class AddressUtils
         {
             return "内网IP";
         }
-        if (RuoYiConfig.isAddressEnabled())
+        if (jinzitaConfig.isAddressEnabled())
         {
             try
             {

@@ -1,13 +1,13 @@
-package com.ruoyi.common.utils;
+package com.jinzita.common.utils;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
-import com.ruoyi.common.utils.spring.SpringUtils;
+import com.jinzita.common.utils.spring.SpringUtils;
 
 /**
  * 获取i18n资源文件
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class MessageUtils
 {

@@ -1,4 +1,4 @@
-package com.ruoyi.common.enums;
+package com.jinzita.common.enums;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,7 +7,7 @@ import org.springframework.lang.Nullable;
 /**
  * 请求方式
  *
- * @author ruoyi
+ * @author jinzita
  */
 public enum HttpMethod
 {

@@ -1,4 +1,4 @@
-package com.ruoyi.common.core.domain;
+package com.jinzita.common.core.domain;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 /**
  * Entity基类
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class BaseEntity implements Serializable
 {

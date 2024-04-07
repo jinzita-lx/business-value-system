@@ -1,6 +1,6 @@
-package com.ruoyi.common.xss;
+package com.jinzita.common.xss;
 
-import com.ruoyi.common.utils.StringUtils;
+import com.jinzita.common.utils.StringUtils;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.regex.Matcher;
@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 /**
  * 自定义xss校验注解实现
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class XssValidator implements ConstraintValidator<Xss, String>
 {

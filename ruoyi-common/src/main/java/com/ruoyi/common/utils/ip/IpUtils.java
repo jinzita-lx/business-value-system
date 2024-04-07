@@ -1,15 +1,15 @@
-package com.ruoyi.common.utils.ip;
+package com.jinzita.common.utils.ip;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import javax.servlet.http.HttpServletRequest;
-import com.ruoyi.common.utils.ServletUtils;
-import com.ruoyi.common.utils.StringUtils;
+import com.jinzita.common.utils.ServletUtils;
+import com.jinzita.common.utils.StringUtils;
 
 /**
  * 获取IP方法
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class IpUtils
 {

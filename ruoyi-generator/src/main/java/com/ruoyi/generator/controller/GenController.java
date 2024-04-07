@@ -1,4 +1,4 @@
-package com.ruoyi.generator.controller;
+package com.jinzita.generator.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,23 +22,23 @@ import com.alibaba.druid.DbType;
 import com.alibaba.druid.sql.SQLUtils;
 import com.alibaba.druid.sql.ast.SQLStatement;
 import com.alibaba.druid.sql.dialect.mysql.ast.statement.MySqlCreateTableStatement;
-import com.ruoyi.common.annotation.Log;
-import com.ruoyi.common.core.controller.BaseController;
-import com.ruoyi.common.core.domain.AjaxResult;
-import com.ruoyi.common.core.page.TableDataInfo;
-import com.ruoyi.common.core.text.Convert;
-import com.ruoyi.common.enums.BusinessType;
-import com.ruoyi.common.utils.SecurityUtils;
-import com.ruoyi.common.utils.sql.SqlUtil;
-import com.ruoyi.generator.domain.GenTable;
-import com.ruoyi.generator.domain.GenTableColumn;
-import com.ruoyi.generator.service.IGenTableColumnService;
-import com.ruoyi.generator.service.IGenTableService;
+import com.jinzita.common.annotation.Log;
+import com.jinzita.common.core.controller.BaseController;
+import com.jinzita.common.core.domain.AjaxResult;
+import com.jinzita.common.core.page.TableDataInfo;
+import com.jinzita.common.core.text.Convert;
+import com.jinzita.common.enums.BusinessType;
+import com.jinzita.common.utils.SecurityUtils;
+import com.jinzita.common.utils.sql.SqlUtil;
+import com.jinzita.generator.domain.GenTable;
+import com.jinzita.generator.domain.GenTableColumn;
+import com.jinzita.generator.service.IGenTableColumnService;
+import com.jinzita.generator.service.IGenTableService;
 
 /**
  * 代码生成 操作处理
  * 
- * @author ruoyi
+ * @author jinzita
  */
 @RestController
 @RequestMapping("/tool/gen")
@@ -250,7 +250,7 @@ public class GenController extends BaseController
         response.reset();
         response.addHeader("Access-Control-Allow-Origin", "*");
         response.addHeader("Access-Control-Expose-Headers", "Content-Disposition");
-        response.setHeader("Content-Disposition", "attachment; filename=\"ruoyi.zip\"");
+        response.setHeader("Content-Disposition", "attachment; filename=\"jinzita.zip\"");
         response.addHeader("Content-Length", "" + data.length);
         response.setContentType("application/octet-stream; charset=UTF-8");
         IOUtils.write(data, response.getOutputStream());

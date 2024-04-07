@@ -1,4 +1,4 @@
-package com.ruoyi.common.utils.poi;
+package com.jinzita.common.utils.poi;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -6,7 +6,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 /**
  * Excel数据格式处理适配器
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public interface ExcelHandlerAdapter
 {

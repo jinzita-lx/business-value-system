@@ -1,17 +1,17 @@
-package com.ruoyi.common.utils;
+package com.jinzita.common.utils;
 
 import java.util.Collection;
 import java.util.List;
 import com.alibaba.fastjson2.JSONArray;
-import com.ruoyi.common.constant.CacheConstants;
-import com.ruoyi.common.core.domain.entity.SysDictData;
-import com.ruoyi.common.core.redis.RedisCache;
-import com.ruoyi.common.utils.spring.SpringUtils;
+import com.jinzita.common.constant.CacheConstants;
+import com.jinzita.common.core.domain.entity.SysDictData;
+import com.jinzita.common.core.redis.RedisCache;
+import com.jinzita.common.utils.spring.SpringUtils;
 
 /**
  * 字典工具类
  * 
- * @author ruoyi
+ * @author jinzita
  */
 public class DictUtils
 {
