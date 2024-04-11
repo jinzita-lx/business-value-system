@@ -2,7 +2,7 @@
 
 ```bash
 # 克隆项目
-git clone https://gitee.com/y_project/jinzita-Vue
+git clone https://github.com/jinzita-lx/business-value-system
 
 # 进入项目目录
 cd jinzita-ui
