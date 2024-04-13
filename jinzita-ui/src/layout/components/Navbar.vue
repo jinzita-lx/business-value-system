@@ -20,6 +20,7 @@
       <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
         <div class="avatar-wrapper">
           <img :src="avatar" class="user-avatar">
+          {{name}}
         </div>
         <el-dropdown-menu slot="dropdown">
           <router-link to="/user/profile">
@@ -63,7 +64,8 @@ export default {
     ...mapGetters([
       'sidebar',
       'avatar',
-      'device'
+      'device',
+      'name',
     ]),
     setting: {
       get() {
@@ -167,8 +169,10 @@ export default {
       margin-right: 30px;
 
       .avatar-wrapper {
-        margin-top: 5px;
         position: relative;
+        display: flex;
+        gap: 10px;
+        align-items: center;
 
         .user-avatar {
           cursor: pointer;
