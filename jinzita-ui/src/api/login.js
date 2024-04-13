@@ -31,6 +31,16 @@ export function register(data) {
   })
 }
 
+export function getRegisterConfig() {
+  return request({
+    url: 'getRegisterConfig',
+    headers: {
+      isToken: false
+    },
+    method: 'get',
+  })
+}
+
 // 获取用户详细信息
 export function getInfo() {
   return request({

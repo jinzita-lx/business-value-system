@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import { getCodeImg } from "@/api/login";
+import { getCodeImg, getRegisterConfig } from '@/api/login'
 import Cookies from "js-cookie";
 import { encrypt, decrypt } from '@/utils/jsencrypt'
 
@@ -106,8 +106,13 @@ export default {
   created() {
     this.getCode();
     this.getCookie();
+    this.getRegister();
   },
   methods: {
+    async getRegister() {
+      const res = await getRegisterConfig();
+      this.register = Boolean(res.data);
+    },
     getCode() {
       getCodeImg().then(res => {
         this.captchaEnabled = res.captchaEnabled === undefined ? true : res.captchaEnabled;
@@ -161,7 +166,7 @@ export default {
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-image: url("../assets/images/login-background.jpg");
+  background-image: url("../assets/images/bg-1.png");
   background-size: cover;
 }
 .title {

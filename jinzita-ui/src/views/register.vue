@@ -127,12 +127,11 @@ export default {
           this.loading = true;
           register(this.registerForm).then(res => {
             const username = this.registerForm.username;
-            this.$alert("<font color='red'>恭喜你，您的账号 " + username + " 注册成功！</font>", '系统提示', {
-              dangerouslyUseHTMLString: true,
-              type: 'success'
-            }).then(() => {
-              this.$router.push("/login");
-            }).catch(() => {});
+            this.$message({
+              message: `恭喜你，您的账号${username} 注册成功🎉🎉`,
+              type:'success'
+            })
+            this.$router.push("/login")
           }).catch(() => {
             this.loading = false;
             if (this.captchaEnabled) {
@@ -152,7 +151,7 @@ export default {
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-image: url("../assets/images/login-background.jpg");
+  background-image: url("../assets/images/bg-1.png");
   background-size: cover;
 }
 .title {

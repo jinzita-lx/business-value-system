@@ -1,9 +1,7 @@
 package com.jinzita.web.controller.system;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.jinzita.common.core.controller.BaseController;
 import com.jinzita.common.core.domain.AjaxResult;
 import com.jinzita.common.core.domain.model.RegisterBody;
@@ -34,5 +32,13 @@ public class SysRegisterController extends BaseController
         }
         String msg = registerService.register(user);
         return StringUtils.isEmpty(msg) ? success() : error(msg);
+    }
+
+    @GetMapping("/getRegisterConfig")
+    public AjaxResult getRegisterConfig() {
+        String registerConfig = configService.selectConfigByKey("sys.account.registerUser");
+        AjaxResult ajax = AjaxResult.success();
+        ajax.put("data", registerConfig);
+        return ajax;
     }
 }
