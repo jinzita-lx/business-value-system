@@ -60,6 +60,13 @@
             <groupId>com.jinzita</groupId>
             <artifactId>jinzita-generator</artifactId>
         </dependency>
+        <!-- 资源管理-->
+        <dependency>
+            <groupId>com.jinzita.resource</groupId>
+            <artifactId>jinzita-resource</artifactId>
+            <version>3.8.7</version>
+            <scope>compile</scope>
+        </dependency>
 
     </dependencies>
 

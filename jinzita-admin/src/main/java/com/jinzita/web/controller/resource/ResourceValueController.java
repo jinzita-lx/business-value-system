@@ -1,4 +1,4 @@
-package com.jinzita.resource.controller;
+package com.jinzita.web.controller.resource;
 
 import java.util.List;
 import javax.servlet.http.HttpServletResponse;
