@@ -13,8 +13,5 @@ export default {
       url: process.env.VUE_APP_BASE_API + "/swagger-ui/index.html"
     };
   },
-  mounted() {
-    console.log(this.url);
-  }
 };
 </script>
