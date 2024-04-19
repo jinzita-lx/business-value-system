@@ -33,7 +33,7 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="综合营销价值" prop="compositeMarketValue">
+      <el-form-item label="综合营销价值" label-width="120" prop="compositeMarketValue">
         <el-input
           v-model="queryParams.compositeMarketValue"
           placeholder="请输入综合营销价值"
@@ -41,7 +41,7 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="商业适应度指数" prop="businessAdaptationExponent">
+      <el-form-item label="商业适应度指数" label-width="120" prop="businessAdaptationExponent">
         <el-input
           v-model="queryParams.businessAdaptationExponent"
           placeholder="请输入商业适应度指数"
@@ -57,7 +57,7 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="活跃度指数" prop="activityExponent">
+      <el-form-item label="活跃度指数" label-width="120" prop="activityExponent">
         <el-input
           v-model="queryParams.activityExponent"
           placeholder="请输入活跃度指数"
@@ -154,12 +154,18 @@
       <el-table-column label="主键" align="center" prop="id" />
       <el-table-column label="作者" align="center" prop="author" />
       <el-table-column label="性别" align="center" prop="gender" />
-      <el-table-column label="简介" align="center" prop="introduction" />
-      <el-table-column label="主页链接" align="center" prop="homeLink" />
-      <el-table-column label="综合营销价值" align="center" prop="compositeMarketValue" />
-      <el-table-column label="商业适应度指数" align="center" prop="businessAdaptationExponent" />
+      <el-table-column label="简介" align="center" prop="introduction" width="200" />
+      <el-table-column label="主页链接" align="center" prop="homeLink" width="300" >
+        <template slot-scope="scope">
+          <span>
+            <el-button @click="routerToHomeLink(scope.row.homeLink)" type="text">{{ scope.row.homeLink }}</el-button>
+          </span>
+        </template>
+      </el-table-column>
+      <el-table-column label="综合营销价值" align="center" prop="compositeMarketValue" width="100" />
+      <el-table-column label="商业适应度指数" align="center" prop="businessAdaptationExponent" width="120" />
       <el-table-column label="传播指数" align="center" prop="spreadExponent" />
-      <el-table-column label="活跃度指数" align="center" prop="activityExponent" />
+      <el-table-column label="活跃度指数" align="center" prop="activityExponent" width="100" />
       <el-table-column label="成长指数" align="center" prop="growthExponent" />
       <el-table-column label="健康指数" align="center" prop="healthExponent" />
       <el-table-column label="周期类型" align="center" prop="periodType" />
@@ -174,7 +180,7 @@
           <span>{{ parseTime(scope.row.endTime, '{y}-{m}-{d}') }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
+      <el-table-column label="操作" align="center" width="180" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
             size="mini"
@@ -315,6 +321,9 @@ export default {
     this.getList();
   },
   methods: {
+    routerToHomeLink(homeLink) {
+      location.href = homeLink;
+    },
     /** 查询价值榜单列表 */
     getList() {
       this.loading = true;
