@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinzita.resource.mapper.ResourceValueMapper">
+    
+    <resultMap type="ResourceValue" id="ResourceValueResult">
+        <result property="id"    column="id"    />
+        <result property="author"    column="author"    />
+        <result property="gender"    column="gender"    />
+        <result property="introduction"    column="introduction"    />
+        <result property="homeLink"    column="home_link"    />
+        <result property="compositeMarketValue"    column="composite_market_value"    />
+        <result property="businessAdaptationExponent"    column="business_adaptation_exponent"    />
+        <result property="spreadExponent"    column="spread_exponent"    />
+        <result property="activityExponent"    column="activity_exponent"    />
+        <result property="growthExponent"    column="growth_exponent"    />
+        <result property="healthExponent"    column="health_exponent"    />
+        <result property="periodType"    column="period_type"    />
+        <result property="listType"    column="list_type"    />
+        <result property="startTime"    column="start_time"    />
+        <result property="endTime"    column="end_time"    />
+    </resultMap>
+
+    <sql id="selectResourceValueVo">
+        select id, author, gender, introduction, home_link, composite_market_value, business_adaptation_exponent, spread_exponent, activity_exponent, growth_exponent, health_exponent, period_type, list_type, start_time, end_time from short_video_business_value_list
+    </sql>
+
+    <select id="selectResourceValueList" parameterType="ResourceValue" resultMap="ResourceValueResult">
+        <include refid="selectResourceValueVo"/>
+        <where>  
+            <if test="author != null  and author != ''"> and author = #{author}</if>
+            <if test="gender != null  and gender != ''"> and gender = #{gender}</if>
+            <if test="introduction != null  and introduction != ''"> and introduction = #{introduction}</if>
+            <if test="homeLink != null  and homeLink != ''"> and home_link = #{homeLink}</if>
+            <if test="compositeMarketValue != null "> and composite_market_value = #{compositeMarketValue}</if>
+            <if test="businessAdaptationExponent != null "> and business_adaptation_exponent = #{businessAdaptationExponent}</if>
+            <if test="spreadExponent != null "> and spread_exponent = #{spreadExponent}</if>
+            <if test="activityExponent != null "> and activity_exponent = #{activityExponent}</if>
+            <if test="growthExponent != null "> and growth_exponent = #{growthExponent}</if>
+            <if test="healthExponent != null "> and health_exponent = #{healthExponent}</if>
+            <if test="periodType != null  and periodType != ''"> and period_type = #{periodType}</if>
+            <if test="listType != null  and listType != ''"> and list_type = #{listType}</if>
+            <if test="startTime != null "> and start_time = #{startTime}</if>
+            <if test="endTime != null "> and end_time = #{endTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectResourceValueById" parameterType="Long" resultMap="ResourceValueResult">
+        <include refid="selectResourceValueVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertResourceValue" parameterType="ResourceValue" useGeneratedKeys="true" keyProperty="id">
+        insert into short_video_business_value_list
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="author != null">author,</if>
+            <if test="gender != null">gender,</if>
+            <if test="introduction != null">introduction,</if>
+            <if test="homeLink != null">home_link,</if>
+            <if test="compositeMarketValue != null">composite_market_value,</if>
+            <if test="businessAdaptationExponent != null">business_adaptation_exponent,</if>
+            <if test="spreadExponent != null">spread_exponent,</if>
+            <if test="activityExponent != null">activity_exponent,</if>
+            <if test="growthExponent != null">growth_exponent,</if>
+            <if test="healthExponent != null">health_exponent,</if>
+            <if test="periodType != null">period_type,</if>
+            <if test="listType != null">list_type,</if>
+            <if test="startTime != null">start_time,</if>
+            <if test="endTime != null">end_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="author != null">#{author},</if>
+            <if test="gender != null">#{gender},</if>
+            <if test="introduction != null">#{introduction},</if>
+            <if test="homeLink != null">#{homeLink},</if>
+            <if test="compositeMarketValue != null">#{compositeMarketValue},</if>
+            <if test="businessAdaptationExponent != null">#{businessAdaptationExponent},</if>
+            <if test="spreadExponent != null">#{spreadExponent},</if>
+            <if test="activityExponent != null">#{activityExponent},</if>
+            <if test="growthExponent != null">#{growthExponent},</if>
+            <if test="healthExponent != null">#{healthExponent},</if>
+            <if test="periodType != null">#{periodType},</if>
+            <if test="listType != null">#{listType},</if>
+            <if test="startTime != null">#{startTime},</if>
+            <if test="endTime != null">#{endTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateResourceValue" parameterType="ResourceValue">
+        update short_video_business_value_list
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="author != null">author = #{author},</if>
+            <if test="gender != null">gender = #{gender},</if>
+            <if test="introduction != null">introduction = #{introduction},</if>
+            <if test="homeLink != null">home_link = #{homeLink},</if>
+            <if test="compositeMarketValue != null">composite_market_value = #{compositeMarketValue},</if>
+            <if test="businessAdaptationExponent != null">business_adaptation_exponent = #{businessAdaptationExponent},</if>
+            <if test="spreadExponent != null">spread_exponent = #{spreadExponent},</if>
+            <if test="activityExponent != null">activity_exponent = #{activityExponent},</if>
+            <if test="growthExponent != null">growth_exponent = #{growthExponent},</if>
+            <if test="healthExponent != null">health_exponent = #{healthExponent},</if>
+            <if test="periodType != null">period_type = #{periodType},</if>
+            <if test="listType != null">list_type = #{listType},</if>
+            <if test="startTime != null">start_time = #{startTime},</if>
+            <if test="endTime != null">end_time = #{endTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteResourceValueById" parameterType="Long">
+        delete from short_video_business_value_list where id = #{id}
+    </delete>
+
+    <delete id="deleteResourceValueByIds" parameterType="String">
+        delete from short_video_business_value_list where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

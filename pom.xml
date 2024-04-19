@@ -172,6 +172,7 @@
         <module>jinzita-quartz</module>
         <module>jinzita-generator</module>
         <module>jinzita-common</module>
+        <module>jinzita-resource</module>
     </modules>
     <packaging>pom</packaging>
 

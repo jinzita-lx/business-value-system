@@ -2,11 +2,11 @@
   <div class="sidebar-logo-container" :class="{'collapse':collapse}" :style="{ backgroundColor: sideTheme === 'theme-dark' ? variables.menuBackground : variables.menuLightBackground }">
     <transition name="sidebarLogoFade">
       <router-link v-if="collapse" key="collapse" class="sidebar-logo-link" to="/">
-        <img v-if="logo" :src="logo" class="sidebar-logo" />
+        <logo-svg v-if="logo" class="sidebar-logo" />
         <h1 v-else class="sidebar-title" :style="{ color: sideTheme === 'theme-dark' ? variables.logoTitleColor : variables.logoLightTitleColor }">{{ title }} </h1>
       </router-link>
       <router-link v-else key="expand" class="sidebar-logo-link" to="/">
-        <img v-if="logo" :src="logo" class="sidebar-logo" />
+        <logo-svg v-if="logo" class="sidebar-logo" />
         <h1 class="sidebar-title" :style="{ color: sideTheme === 'theme-dark' ? variables.logoTitleColor : variables.logoLightTitleColor }">{{ title }} </h1>
       </router-link>
     </transition>
@@ -15,10 +15,14 @@
 
 <script>
 import logoImg from '@/assets/logo/logo.png'
+import logoSvg from './logoSvg'
 import variables from '@/assets/styles/variables.scss'
 
 export default {
   name: 'SidebarLogo',
+  components: {
+    logoSvg
+  },
   props: {
     collapse: {
       type: Boolean,
@@ -33,10 +37,14 @@ export default {
       return this.$store.state.settings.sideTheme
     }
   },
+  mounted() {
+    console.log(process.env);
+  },
   data() {
     return {
       title: process.env.VUE_APP_TITLE,
-      logo: logoImg
+      logo: logoImg,
+      icon: logoSvg,
     }
   }
 }
@@ -69,7 +77,6 @@ export default {
       width: 32px;
       height: 32px;
       vertical-align: middle;
-      margin-right: 12px;
     }
 
     & .sidebar-title {
@@ -78,7 +85,7 @@ export default {
       color: #fff;
       font-weight: 600;
       line-height: 50px;
-      font-size: 14px;
+      font-size: 12px;
       font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
       vertical-align: middle;
     }
