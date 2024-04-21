@@ -3,7 +3,7 @@
     <div class="left-board">
       <div class="logo-wrapper">
         <div class="logo">
-          <logo-svg /> Form Generator
+          <logo-svg class="logo-icon" alt="logo" /> Form Generator
         </div>
       </div>
       <el-scrollbar class="left-scrollbar">
@@ -610,7 +610,7 @@ $lighterBlue: #409EFF;
   font-weight: 600;
   font-size: 17px;
   white-space: nowrap;
-  > img{
+  > .logo-icon {
     width: 30px;
     height: 30px;
     vertical-align: top;
