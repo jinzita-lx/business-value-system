@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form">
-      <h3 class="title">短视频商业价值预测系统</h3>
+      <h3 class="title"> <logo-svg class="title-logo" /> {{ title }}</h3>
       <el-form-item prop="username">
         <el-input
           v-model="loginForm.username"
@@ -65,8 +65,10 @@
 import { getCodeImg, getRegisterConfig } from '@/api/login'
 import Cookies from "js-cookie";
 import { encrypt, decrypt } from '@/utils/jsencrypt'
+import logoSvg from '../layout/components/Sidebar/logoSvg.vue';
 
 export default {
+  components: { logoSvg },
   name: "Login",
   data() {
     return {
@@ -92,7 +94,8 @@ export default {
       captchaEnabled: true,
       // 注册开关
       register: false,
-      redirect: undefined
+      redirect: undefined,
+      title: process.env.VUE_APP_TITLE
     };
   },
   watch: {
@@ -171,8 +174,15 @@ export default {
 }
 .title {
   margin: 0px auto 30px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
   text-align: center;
   color: #707070;
+  .title-logo {
+    height: 100%;
+  }
 }
 
 .login-form {

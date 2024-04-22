@@ -1,7 +1,7 @@
 <template>
   <div class="register">
     <el-form ref="registerForm" :model="registerForm" :rules="registerRules" class="register-form">
-      <h3 class="title">短视频商业价值预测系统</h3>
+      <h3 class="title"> <logo-svg class="title-logo" />  {{ title }}</h3>
       <el-form-item prop="username">
         <el-input v-model="registerForm.username" type="text" auto-complete="off" placeholder="账号">
           <svg-icon slot="prefix" icon-class="user" class="el-input__icon input-icon" />
@@ -68,8 +68,10 @@
 
 <script>
 import { getCodeImg, register } from "@/api/login";
+import logoSvg from '../layout/components/Sidebar/logoSvg.vue';
 
 export default {
+  components: { logoSvg },
   name: "Register",
   data() {
     const equalToPassword = (rule, value, callback) => {
@@ -105,7 +107,8 @@ export default {
         code: [{ required: true, trigger: "change", message: "请输入验证码" }]
       },
       loading: false,
-      captchaEnabled: true
+      captchaEnabled: true,
+      title: process.env.VUE_APP_TITLE
     };
   },
   created() {
@@ -156,8 +159,15 @@ export default {
 }
 .title {
   margin: 0px auto 30px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
   text-align: center;
   color: #707070;
+  .title-logo {
+    height: 100%;
+  }
 }
 
 .register-form {
