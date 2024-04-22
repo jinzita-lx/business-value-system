@@ -2,6 +2,7 @@
 
   .main-container {
     height: 100%;
+    min-width: 900px;
     transition: margin-left .28s;
     margin-left: $base-sidebar-width;
     position: relative;
