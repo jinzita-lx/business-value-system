@@ -9,9 +9,9 @@
           </span>
         </div>
       </template>
-      <el-row>
+      <el-row :gutter="16">
         <el-col :span="12">
-          <el-card> 1 </el-card>
+          <el-card></el-card>
         </el-col>
         <el-col :span="12">
           <el-card> 2 </el-card>
