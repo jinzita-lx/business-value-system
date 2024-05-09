@@ -438,7 +438,7 @@ export default {
   },
   methods: {
     routerToHomeLink(homeLink) {
-      location.href = homeLink;
+      window.open(homeLink);
     },
     /** 查询价值榜单列表 */
     getList() {

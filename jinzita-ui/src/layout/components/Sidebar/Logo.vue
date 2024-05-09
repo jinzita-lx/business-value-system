@@ -37,7 +37,6 @@ export default {
     }
   },
   mounted() {
-    console.log(process.env);
   },
   data() {
     return {

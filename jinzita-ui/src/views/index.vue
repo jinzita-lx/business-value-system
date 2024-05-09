@@ -92,8 +92,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-$width: 60px;
+$width: 40px;
 .home-card {
+  height: calc(100vh - 124px);
   .header {
     display: flex;
     justify-content: center;
@@ -115,7 +116,6 @@ $width: 60px;
     .chart-wrapper {
       background: #fff;
       padding: 16px 16px 0;
-      margin-bottom: 32px;
     }
   }
 

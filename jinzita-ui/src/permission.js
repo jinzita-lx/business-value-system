@@ -13,6 +13,7 @@ const whiteList = ['/login', '/register']
 router.beforeEach((to, from, next) => {
   NProgress.start()
   if (getToken()) {
+    store.dispatch('GetCookie').catch(err => {this.$message.error(err)})
     to.meta.title && store.dispatch('settings/setTitle', to.meta.title)
     /* has token*/
     if (to.path === '/login') {
