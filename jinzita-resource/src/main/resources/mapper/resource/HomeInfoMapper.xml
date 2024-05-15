@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinzita.resource.mapper.HomeInfoMapper">
+    
+    <resultMap type="HomeInfo" id="HomeInfoResult">
+        <result property="id"    column="id"    />
+        <result property="author"    column="author"    />
+        <result property="gender"    column="gender"    />
+        <result property="introduction"    column="introduction"    />
+        <result property="homeLink"    column="home_link"    />
+        <result property="periodType"    column="period_type"    />
+        <result property="listType"    column="list_type"    />
+    </resultMap>
+
+    <sql id="selectHomeInfoVo">
+        select id, author, gender, introduction, home_link, period_type, list_type from home_info
+    </sql>
+
+    <select id="selectHomeInfoList" parameterType="HomeInfo" resultMap="HomeInfoResult">
+        <include refid="selectHomeInfoVo"/>
+        <where>  
+            <if test="author != null  and author != ''"> and author = #{author}</if>
+            <if test="gender != null  and gender != ''"> and gender = #{gender}</if>
+            <if test="introduction != null  and introduction != ''"> and introduction = #{introduction}</if>
+            <if test="homeLink != null  and homeLink != ''"> and home_link = #{homeLink}</if>
+            <if test="periodType != null  and periodType != ''"> and period_type = #{periodType}</if>
+            <if test="listType != null  and listType != ''"> and list_type = #{listType}</if>
+        </where>
+    </select>
+    
+    <select id="selectHomeInfoById" parameterType="Long" resultMap="HomeInfoResult">
+        <include refid="selectHomeInfoVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertHomeInfo" parameterType="HomeInfo" useGeneratedKeys="true" keyProperty="id">
+        insert into home_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="author != null">author,</if>
+            <if test="gender != null">gender,</if>
+            <if test="introduction != null">introduction,</if>
+            <if test="homeLink != null">home_link,</if>
+            <if test="periodType != null">period_type,</if>
+            <if test="listType != null">list_type,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="author != null">#{author},</if>
+            <if test="gender != null">#{gender},</if>
+            <if test="introduction != null">#{introduction},</if>
+            <if test="homeLink != null">#{homeLink},</if>
+            <if test="periodType != null">#{periodType},</if>
+            <if test="listType != null">#{listType},</if>
+         </trim>
+    </insert>
+
+    <update id="updateHomeInfo" parameterType="HomeInfo">
+        update home_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="author != null">author = #{author},</if>
+            <if test="gender != null">gender = #{gender},</if>
+            <if test="introduction != null">introduction = #{introduction},</if>
+            <if test="homeLink != null">home_link = #{homeLink},</if>
+            <if test="periodType != null">period_type = #{periodType},</if>
+            <if test="listType != null">list_type = #{listType},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteHomeInfoById" parameterType="Long">
+        delete from home_info where id = #{id}
+    </delete>
+
+    <delete id="deleteHomeInfoByIds" parameterType="String">
+        delete from home_info where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
