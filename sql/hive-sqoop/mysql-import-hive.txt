@@ -1,0 +1,1 @@
+sqoop import --connect jdbc:mysql://localhost:3306/business_value --username root --password lx123456 --table short_video_business_value_list -m 1 --hive-import --create-hive-table --fields-terminated-by '\t' --hive-table web.people_access_log

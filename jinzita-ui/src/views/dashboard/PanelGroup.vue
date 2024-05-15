@@ -94,7 +94,6 @@ export default {
 
 <style lang="scss" scoped>
 .panel-group {
-  margin-top: 18px;
 
   .card-panel-col {
     margin-bottom: 32px;

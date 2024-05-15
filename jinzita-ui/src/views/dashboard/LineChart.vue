@@ -20,7 +20,7 @@ export default {
     },
     height: {
       type: String,
-      default: '350px'
+      default: '100%'
     },
     autoResize: {
       type: Boolean,
@@ -92,7 +92,8 @@ export default {
         legend: {
           data: ['expected', 'actual']
         },
-        series: [{
+        series: [
+          {
           name: 'expected', itemStyle: {
             normal: {
               color: '#FF005A',

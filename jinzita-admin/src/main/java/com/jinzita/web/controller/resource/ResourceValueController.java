@@ -46,6 +46,13 @@ public class ResourceValueController extends BaseController
         return getDataTable(list);
     }
 
+    @GetMapping("/data_set")
+    public TableDataInfo dataSet(ResourceValue resourceValue)
+    {
+        List<ResourceValue> list = resourceValueService.selectResourceValueList(resourceValue);
+        return getDataTable(list);
+    }
+
     /**
      * 导出价值榜单列表
      */

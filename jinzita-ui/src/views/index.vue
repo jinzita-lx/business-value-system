@@ -1,35 +1,38 @@
 <template>
   <div class="app-container home">
-    <el-card class="home-card">
-      <template slot="header">
-        <div class="header">
-          <logo-svg class="header-logo" />
-          <span class="header-title">
-            {{ title }}
-          </span>
-        </div>
-      </template>
-
+    <el-card
+      class="home-card"
+      :body-style="{ height: '100%', display: 'flex', flexDirection: 'column' }"
+    >
+      <div class="header">
+        <logo-svg class="header-logo" />
+        <span class="header-title">短视频商业价值预测系统可视化大屏</span>
+      </div>
       <div class="dashboard-editor-container">
         <panel-group @handleSetLineChartData="handleSetLineChartData" />
         <el-row
-          style="background: #fff; padding: 16px 16px 0; margin-bottom: 32px"
+          style="
+            background: #fff;
+            padding: 16px 16px 0;
+            margin-bottom: 32px;
+            height: 200px;
+            flex: 1;
+          "
         >
           <line-chart :chart-data="lineChartData" />
         </el-row>
-
-        <el-row :gutter="32">
-          <el-col :xs="24" :sm="24" :lg="8">
+        <el-row :gutter="32" style="flex: 1">
+          <el-col :xs="24" :sm="24" :lg="8" style="height: 100%">
             <div class="chart-wrapper">
               <raddar-chart />
             </div>
           </el-col>
-          <el-col :xs="24" :sm="24" :lg="8">
+          <el-col :xs="24" :sm="24" :lg="8" style="height: 100%">
             <div class="chart-wrapper">
               <pie-chart />
             </div>
           </el-col>
-          <el-col :xs="24" :sm="24" :lg="8">
+          <el-col :xs="24" :sm="24" :lg="8" style="height: 100%">
             <div class="chart-wrapper">
               <bar-chart />
             </div>
@@ -95,10 +98,14 @@ export default {
 $width: 40px;
 .home-card {
   height: calc(100vh - 124px);
+  display: flex;
+  flex-direction: column;
   .header {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: -8px;
+    margin-bottom: 8px;
     height: $width * 4 / 3;
     .header-title {
       font-size: $width;
@@ -109,11 +116,15 @@ $width: 40px;
     }
   }
   .dashboard-editor-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     padding: 32px;
     background-color: rgb(240, 242, 245);
     position: relative;
-
+    overflow: hidden;
     .chart-wrapper {
+      height: 100%;
       background: #fff;
       padding: 16px 16px 0;
     }
