@@ -9,6 +9,7 @@ import resize from './mixins/resize'
 
 const animationDuration = 3000
 
+// 商业价值均值
 export default {
   mixins: [resize],
   props: {

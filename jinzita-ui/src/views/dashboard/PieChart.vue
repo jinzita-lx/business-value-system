@@ -6,7 +6,7 @@
 import * as echarts from 'echarts'
 require('echarts/theme/macarons') // echarts theme
 import resize from './mixins/resize'
-
+// 商业价值占比
 export default {
   mixins: [resize],
   props: {
@@ -56,7 +56,7 @@ export default {
         },
         series: [
           {
-            name: 'WEEKLY WRITE ARTICLES',
+            name: '商业价值占比',
             type: 'pie',
             roseType: 'radius',
             radius: [15, 95],
