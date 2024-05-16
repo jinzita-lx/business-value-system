@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinzita.resource.mapper.BusinessValueIndicatorsMapper">
+    
+    <resultMap type="BusinessValueIndicators" id="BusinessValueIndicatorsResult">
+        <result property="id"    column="id"    />
+        <result property="indicatorName"    column="indicator_name"    />
+        <result property="indicatorKey"    column="indicator_key"    />
+        <result property="indicatorMax"    column="indicator_max"    />
+        <result property="indicatorMin"    column="indicator_min"    />
+        <result property="isDelete"    column="is_delete"    />
+        <result property="isOpen"    column="is_open"    />
+    </resultMap>
+
+    <sql id="selectBusinessValueIndicatorsVo">
+        select id, indicator_name, indicator_key, indicator_max, indicator_min, is_delete, is_open from business_value_indicators
+    </sql>
+
+    <select id="selectBusinessValueIndicatorsList" parameterType="BusinessValueIndicators" resultMap="BusinessValueIndicatorsResult">
+        <include refid="selectBusinessValueIndicatorsVo"/>
+        <where>  
+            <if test="indicatorName != null  and indicatorName != ''"> and indicator_name like concat('%', #{indicatorName}, '%')</if>
+            <if test="indicatorKey != null  and indicatorKey != ''"> and indicator_key = #{indicatorKey}</if>
+            <if test="indicatorMax != null "> and indicator_max = #{indicatorMax}</if>
+            <if test="indicatorMin != null "> and indicator_min = #{indicatorMin}</if>
+            <if test="isDelete != null "> and is_delete = #{isDelete}</if>
+            <if test="isOpen != null "> and is_open = #{isOpen}</if>
+        </where>
+    </select>
+    
+    <select id="selectBusinessValueIndicatorsById" parameterType="Long" resultMap="BusinessValueIndicatorsResult">
+        <include refid="selectBusinessValueIndicatorsVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertBusinessValueIndicators" parameterType="BusinessValueIndicators" useGeneratedKeys="true" keyProperty="id">
+        insert into business_value_indicators
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="indicatorName != null">indicator_name,</if>
+            <if test="indicatorKey != null">indicator_key,</if>
+            <if test="indicatorMax != null">indicator_max,</if>
+            <if test="indicatorMin != null">indicator_min,</if>
+            <if test="isDelete != null">is_delete,</if>
+            <if test="isOpen != null">is_open,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="indicatorName != null">#{indicatorName},</if>
+            <if test="indicatorKey != null">#{indicatorKey},</if>
+            <if test="indicatorMax != null">#{indicatorMax},</if>
+            <if test="indicatorMin != null">#{indicatorMin},</if>
+            <if test="isDelete != null">#{isDelete},</if>
+            <if test="isOpen != null">#{isOpen},</if>
+         </trim>
+    </insert>
+
+    <update id="updateBusinessValueIndicators" parameterType="BusinessValueIndicators">
+        update business_value_indicators
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="indicatorName != null">indicator_name = #{indicatorName},</if>
+            <if test="indicatorKey != null">indicator_key = #{indicatorKey},</if>
+            <if test="indicatorMax != null">indicator_max = #{indicatorMax},</if>
+            <if test="indicatorMin != null">indicator_min = #{indicatorMin},</if>
+            <if test="isDelete != null">is_delete = #{isDelete},</if>
+            <if test="isOpen != null">is_open = #{isOpen},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteBusinessValueIndicatorsById" parameterType="Long">
+        delete from business_value_indicators where id = #{id}
+    </delete>
+
+    <delete id="deleteBusinessValueIndicatorsByIds" parameterType="String">
+        delete from business_value_indicators where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

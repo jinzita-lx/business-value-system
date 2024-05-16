@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinzita.resource.mapper.ListTypeMapper">
+    
+    <resultMap type="ListType" id="ListTypeResult">
+        <result property="id"    column="id"    />
+        <result property="typeName"    column="type_name"    />
+        <result property="typeNameEn"    column="type_name_en"    />
+        <result property="compositeMarketValue"    column="composite_market_value"    />
+        <result property="businessAdaptationExponent"    column="business_adaptation_exponent"    />
+        <result property="spreadExponent"    column="spread_exponent"    />
+        <result property="activityExponent"    column="activity_exponent"    />
+        <result property="growthExponent"    column="growth_exponent"    />
+        <result property="healthExponent"    column="health_exponent"    />
+    </resultMap>
+
+    <sql id="selectListTypeVo">
+        select id, type_name, type_name_en, composite_market_value, business_adaptation_exponent, spread_exponent, activity_exponent, growth_exponent, health_exponent from list_type
+    </sql>
+
+    <select id="selectListTypeList" parameterType="ListType" resultMap="ListTypeResult">
+        <include refid="selectListTypeVo"/>
+        <where>  
+            <if test="typeName != null  and typeName != ''"> and type_name like concat('%', #{typeName}, '%')</if>
+            <if test="typeNameEn != null  and typeNameEn != ''"> and type_name_en = #{typeNameEn}</if>
+            <if test="compositeMarketValue != null "> and composite_market_value = #{compositeMarketValue}</if>
+            <if test="businessAdaptationExponent != null "> and business_adaptation_exponent = #{businessAdaptationExponent}</if>
+            <if test="spreadExponent != null "> and spread_exponent = #{spreadExponent}</if>
+            <if test="activityExponent != null "> and activity_exponent = #{activityExponent}</if>
+            <if test="growthExponent != null "> and growth_exponent = #{growthExponent}</if>
+            <if test="healthExponent != null "> and health_exponent = #{healthExponent}</if>
+        </where>
+    </select>
+    
+    <select id="selectListTypeById" parameterType="Long" resultMap="ListTypeResult">
+        <include refid="selectListTypeVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertListType" parameterType="ListType">
+        insert into list_type
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="typeName != null">type_name,</if>
+            <if test="typeNameEn != null">type_name_en,</if>
+            <if test="compositeMarketValue != null">composite_market_value,</if>
+            <if test="businessAdaptationExponent != null">business_adaptation_exponent,</if>
+            <if test="spreadExponent != null">spread_exponent,</if>
+            <if test="activityExponent != null">activity_exponent,</if>
+            <if test="growthExponent != null">growth_exponent,</if>
+            <if test="healthExponent != null">health_exponent,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="typeName != null">#{typeName},</if>
+            <if test="typeNameEn != null">#{typeNameEn},</if>
+            <if test="compositeMarketValue != null">#{compositeMarketValue},</if>
+            <if test="businessAdaptationExponent != null">#{businessAdaptationExponent},</if>
+            <if test="spreadExponent != null">#{spreadExponent},</if>
+            <if test="activityExponent != null">#{activityExponent},</if>
+            <if test="growthExponent != null">#{growthExponent},</if>
+            <if test="healthExponent != null">#{healthExponent},</if>
+         </trim>
+    </insert>
+
+    <update id="updateListType" parameterType="ListType">
+        update list_type
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="typeName != null">type_name = #{typeName},</if>
+            <if test="typeNameEn != null">type_name_en = #{typeNameEn},</if>
+            <if test="compositeMarketValue != null">composite_market_value = #{compositeMarketValue},</if>
+            <if test="businessAdaptationExponent != null">business_adaptation_exponent = #{businessAdaptationExponent},</if>
+            <if test="spreadExponent != null">spread_exponent = #{spreadExponent},</if>
+            <if test="activityExponent != null">activity_exponent = #{activityExponent},</if>
+            <if test="growthExponent != null">growth_exponent = #{growthExponent},</if>
+            <if test="healthExponent != null">health_exponent = #{healthExponent},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteListTypeById" parameterType="Long">
+        delete from list_type where id = #{id}
+    </delete>
+
+    <delete id="deleteListTypeByIds" parameterType="String">
+        delete from list_type where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

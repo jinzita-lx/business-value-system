@@ -7,7 +7,7 @@ import * as echarts from 'echarts'
 require('echarts/theme/macarons') // echarts theme
 import resize from './mixins/resize'
 // 每种榜单类型的商业价值均值
-// 横坐标 榜单类型 
+// 横坐标 榜单类型
 export default {
   mixins: [resize],
   props: {
