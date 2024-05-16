@@ -33,6 +33,22 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
+      <el-form-item label="周期类型" prop="periodType">
+        <el-input
+          v-model="queryParams.periodType"
+          placeholder="请输入周期类型"
+          clearable
+          @keyup.enter.native="handleQuery"
+        />
+      </el-form-item>
+      <el-form-item label="榜单类型" prop="listType">
+        <el-input
+          v-model="queryParams.listType"
+          placeholder="请输入榜单类型"
+          clearable
+          @keyup.enter.native="handleQuery"
+        />
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" icon="el-icon-search" size="mini" @click="handleQuery">搜索</el-button>
         <el-button icon="el-icon-refresh" size="mini" @click="resetQuery">重置</el-button>
@@ -136,6 +152,12 @@
         </el-form-item>
         <el-form-item label="主页链接" prop="homeLink">
           <el-input v-model="form.homeLink" placeholder="请输入主页链接" />
+        </el-form-item>
+        <el-form-item label="周期类型" prop="periodType">
+          <el-input v-model="form.periodType" placeholder="请输入周期类型" />
+        </el-form-item>
+        <el-form-item label="榜单类型" prop="listType">
+          <el-input v-model="form.listType" placeholder="请输入榜单类型" />
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
