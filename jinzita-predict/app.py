@@ -21,7 +21,7 @@ def predict():
     ada_boost_model = AdaBoostModel()
     ada_boost_model.score()
     form = request.json
-    
+
     # text_x, text_y = [[51, 99, 82, 75, 70]], [98]
     # predict_y = ada_boost_model.predict(text_x)
     # print(predict_y, '预测')

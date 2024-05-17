@@ -1,6 +1,9 @@
 package com.jinzita.resource.service.impl;
 
 import java.util.List;
+
+import com.jinzita.resource.domain.ResourceValue;
+import com.jinzita.resource.mapper.ResourceValueMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.jinzita.resource.mapper.HomeInfoMapper;
@@ -89,5 +92,25 @@ public class HomeInfoServiceImpl implements IHomeInfoService
     public int deleteHomeInfoById(Long id)
     {
         return homeInfoMapper.deleteHomeInfoById(id);
+    }
+
+    /**
+     * 更新主页信息数据
+     * @return
+     */
+    @Override
+    public int reloadHomeInfoList() {
+        List<HomeInfo> homeInfoList = homeInfoMapper.selectHomeInfoFromValueList();
+        try {
+            int res = homeInfoMapper.insertHomeInfoList(homeInfoList);
+            System.out.println(res);
+//            for (HomeInfo homeInfo : homeInfoList) {
+//                updateHomeInfo(homeInfo);
+//            }
+            return 1;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return 0;
+        }
     }
 }

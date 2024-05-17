@@ -58,4 +58,6 @@ public interface IHomeInfoService
      * @return 结果
      */
     public int deleteHomeInfoById(Long id);
+
+    public int reloadHomeInfoList();
 }

@@ -18,9 +18,33 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         select id, author, gender, introduction, home_link, period_type, list_type from home_info
     </sql>
 
+    <sql id="selectValueListVo">
+        select id, author, gender, introduction, home_link, period_type, list_type from short_video_business_value_list
+    </sql>
+
+    <select id="selectHomeInfoFromValueList" resultMap="HomeInfoResult">
+        <include refid="selectValueListVo" />
+    </select>
+    <insert id="insertHomeInfoList" parameterType="HomeInfo">
+        insert into home_info (id,author,gender,introduction,home_link,period_type,list_type)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.id},#{item.author},#{item.gender},
+            #{item.introduction},#{item.homeLink},
+            #{item.periodType},#{item.listType})
+        </foreach>
+        on duplicate key update
+        author = values(author),
+        gender = values(gender),
+        introduction = values(introduction),
+        home_link = values(home_link),
+        period_type = values(period_type),
+        list_type = values(list_type)
+    </insert>
+
     <select id="selectHomeInfoList" parameterType="HomeInfo" resultMap="HomeInfoResult">
         <include refid="selectHomeInfoVo"/>
-        <where>  
+        <where>
             <if test="author != null  and author != ''"> and author = #{author}</if>
             <if test="gender != null  and gender != ''"> and gender = #{gender}</if>
             <if test="introduction != null  and introduction != ''"> and introduction = #{introduction}</if>

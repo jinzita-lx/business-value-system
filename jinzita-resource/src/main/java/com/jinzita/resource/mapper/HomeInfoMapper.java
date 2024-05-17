@@ -58,4 +58,17 @@ public interface HomeInfoMapper
      * @return 结果
      */
     public int deleteHomeInfoByIds(Long[] ids);
+
+    /**
+     * 获取主页信息
+     * @return
+     */
+    public List<HomeInfo> selectHomeInfoFromValueList();
+
+    /**
+     * 更新主页信息
+     * @param homeInfoList
+     * @return
+     */
+    public int insertHomeInfoList(List<HomeInfo> homeInfoList);
 }

@@ -42,3 +42,10 @@ export function delHome(id) {
     method: 'delete'
   })
 }
+
+export function reloadHome() {
+  return request({
+    url: '/resource/home/reload',
+    method: 'get'
+  })
+}

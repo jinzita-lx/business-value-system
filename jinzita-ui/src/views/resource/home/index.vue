@@ -98,12 +98,21 @@
           v-hasPermi="['resource:home:export']"
         >导出</el-button>
       </el-col>
+      <el-col :span="1.5">
+        <el-button
+          plain
+          icon="el-icon-refresh"
+          size="mini"
+          @click="reloadData"
+          v-hasPermi="['resource:home:export']"
+        >更新数据</el-button>
+      </el-col>
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
 
     <el-table v-loading="loading" :data="homeList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="主键" align="center" prop="id" />
+      <el-table-column label="编号" align="center" prop="id" />
       <el-table-column label="作者" align="center" prop="author" />
       <el-table-column label="性别" align="center" prop="gender" />
       <el-table-column label="个人简介" align="center" prop="introduction" />
@@ -129,9 +138,8 @@
         </template>
       </el-table-column>
     </el-table>
-    
-    <pagination
-      v-show="total>0"
+
+    <pagination v-show="total > 0"
       :total="total"
       :page.sync="queryParams.pageNum"
       :limit.sync="queryParams.pageSize"
@@ -169,7 +177,7 @@
 </template>
 
 <script>
-import { listHome, getHome, delHome, addHome, updateHome } from "@/api/resource/home";
+import { listHome, getHome, delHome, addHome, updateHome, reloadHome } from '@/api/resource/home'
 
 export default {
   name: "Home",
@@ -309,6 +317,11 @@ export default {
       this.download('resource/home/export', {
         ...this.queryParams
       }, `home_${new Date().getTime()}.xlsx`)
+    },
+    async reloadData() {
+      await reloadHome();
+      this.$message('更新成功');
+      this.handleQuery();
     }
   }
 };

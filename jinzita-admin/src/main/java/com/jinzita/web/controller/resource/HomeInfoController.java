@@ -95,4 +95,12 @@ public class HomeInfoController extends BaseController
     {
         return toAjax(homeInfoService.deleteHomeInfoByIds(ids));
     }
+
+    @GetMapping("/reload")
+    public AjaxResult reload() {
+        int res = homeInfoService.reloadHomeInfoList();
+        AjaxResult ajaxResult = AjaxResult.success();
+        ajaxResult.put("data", res);
+        return ajaxResult;
+    }
 }
