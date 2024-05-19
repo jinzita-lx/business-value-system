@@ -17,7 +17,7 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="指标最大值" prop="indicatorMax">
+      <el-form-item label="指标最大值" label-width="120" prop="indicatorMax">
         <el-input
           v-model="queryParams.indicatorMax"
           placeholder="请输入指标最大值"
@@ -25,18 +25,10 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="指标最小值" prop="indicatorMin">
+      <el-form-item label="指标最小值" label-width="120" prop="indicatorMin">
         <el-input
           v-model="queryParams.indicatorMin"
           placeholder="请输入指标最小值"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="逻辑删除" prop="isDelete">
-        <el-input
-          v-model="queryParams.isDelete"
-          placeholder="请输入逻辑删除"
           clearable
           @keyup.enter.native="handleQuery"
         />
@@ -103,13 +95,16 @@
 
     <el-table v-loading="loading" :data="indicatorsList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="主键" align="center" prop="id" />
+      <el-table-column label="编号" align="center" prop="id" />
       <el-table-column label="指标名字" align="center" prop="indicatorName" />
       <el-table-column label="指标字段" align="center" prop="indicatorKey" />
       <el-table-column label="指标最大值" align="center" prop="indicatorMax" />
       <el-table-column label="指标最小值" align="center" prop="indicatorMin" />
-      <el-table-column label="逻辑删除" align="center" prop="isDelete" />
-      <el-table-column label="是否启用" align="center" prop="isOpen" />
+      <el-table-column label="是否启用" align="center" prop="isOpen">
+        <template slot-scope="scope">
+          <el-switch v-model="scope.row.isOpen > 0 ? true : false" disabled />
+        </template>
+      </el-table-column>
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button
@@ -129,7 +124,7 @@
         </template>
       </el-table-column>
     </el-table>
-    
+
     <pagination
       v-show="total>0"
       :total="total"
@@ -140,7 +135,7 @@
 
     <!-- 添加或修改价值指标对话框 -->
     <el-dialog :title="title" :visible.sync="open" width="500px" append-to-body>
-      <el-form ref="form" :model="form" :rules="rules" label-width="80px">
+      <el-form ref="form" :model="form" :rules="rules" label-width="110px">
         <el-form-item label="指标名字" prop="indicatorName">
           <el-input v-model="form.indicatorName" placeholder="请输入指标名字" />
         </el-form-item>

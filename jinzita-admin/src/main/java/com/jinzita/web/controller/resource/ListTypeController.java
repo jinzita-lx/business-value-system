@@ -107,7 +107,7 @@ public class ListTypeController extends BaseController
     @GetMapping("/reload")
     public AjaxResult reload() {
         AjaxResult ajaxResult = AjaxResult.success();
-        ajaxResult.put("data", "success");
+        ajaxResult.put("data", listTypeService.reloadListTypeList());
         return ajaxResult;
     }
 }

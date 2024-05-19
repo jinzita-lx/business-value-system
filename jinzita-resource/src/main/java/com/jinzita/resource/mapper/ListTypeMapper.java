@@ -58,4 +58,12 @@ public interface ListTypeMapper
      * @return 结果
      */
     public int deleteListTypeByIds(Long[] ids);
+
+    /**
+     * 查询榜单列表数据
+     * @return
+     */
+    public List<ListType> selectListTypeFormValueList();
+
+    public int reloadListTypeList(List<ListType> listTypeList);
 }

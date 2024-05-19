@@ -93,7 +93,16 @@ public class ListTypeServiceImpl implements IListTypeService
 
     @Override
     public int reloadListTypeList() {
-
-        return 0;
+        List<ListType> listTypeList = listTypeMapper.selectListTypeFormValueList();
+        for (int i = 0; i < listTypeList.size(); i++) {
+            listTypeList.get(i).setId((long) (i+1));
+            System.out.println((long) i+1);
+        }
+        try {
+            return listTypeMapper.reloadListTypeList(listTypeList);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return 0;
+        }
     }
 }

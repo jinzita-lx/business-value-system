@@ -22,6 +22,9 @@ public class ListType extends BaseEntity
     @Excel(name = "类型名称")
     private String typeName;
 
+    @Excel(name = "类型数量")
+    private Long typeNum;
+
     /** 榜单英文名 */
     @Excel(name = "榜单英文名")
     private String typeNameEn;
@@ -50,12 +53,12 @@ public class ListType extends BaseEntity
     @Excel(name = "健康指数")
     private Long healthExponent;
 
-    public void setId(Long id) 
+    public void setId(Long id)
     {
         this.id = id;
     }
 
-    public Long getId() 
+    public Long getId()
     {
         return id;
     }
@@ -67,6 +70,13 @@ public class ListType extends BaseEntity
     public String getTypeName() 
     {
         return typeName;
+    }
+    public void setTypeNum(Long typeNum) {
+        this.typeNum = typeNum;
+    }
+
+    public Long getTypeNum() {
+        return typeNum;
     }
     public void setTypeNameEn(String typeNameEn) 
     {
@@ -137,6 +147,7 @@ public class ListType extends BaseEntity
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
             .append("id", getId())
             .append("typeName", getTypeName())
+            .append("typeNum", getTypeNum())
             .append("typeNameEn", getTypeNameEn())
             .append("compositeMarketValue", getCompositeMarketValue())
             .append("businessAdaptationExponent", getBusinessAdaptationExponent())

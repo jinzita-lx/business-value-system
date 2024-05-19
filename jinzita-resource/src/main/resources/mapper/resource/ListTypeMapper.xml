@@ -7,6 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <resultMap type="ListType" id="ListTypeResult">
         <result property="id"    column="id"    />
         <result property="typeName"    column="type_name"    />
+        <result property="typeNum"    column="type_num"    />
         <result property="typeNameEn"    column="type_name_en"    />
         <result property="compositeMarketValue"    column="composite_market_value"    />
         <result property="businessAdaptationExponent"    column="business_adaptation_exponent"    />
@@ -17,13 +18,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectListTypeVo">
-        select id, type_name, type_name_en, composite_market_value, business_adaptation_exponent, spread_exponent, activity_exponent, growth_exponent, health_exponent from list_type
+        select id, type_name, type_num, type_name_en, composite_market_value, business_adaptation_exponent, spread_exponent, activity_exponent, growth_exponent, health_exponent from list_type
     </sql>
+
+    <select id="selectListTypeFormValueList" resultMap="ListTypeResult">
+        SELECT list_type as type_name,
+               COUNT(list_type) as type_num,
+               avg(composite_market_value) as composite_market_value,
+               avg(business_adaptation_exponent) as business_adaptation_exponent,
+               avg(spread_exponent) as spread_exponent,
+               avg(activity_exponent) as activity_exponent,
+               avg(growth_exponent) as growth_exponent,
+               avg(health_exponent) as health_exponent
+        FROM short_video_business_value_list GROUP BY list_type;
+    </select>
+
+    <insert id="reloadListTypeList" parameterType="ListType">
+        insert into list_type (id,type_name,type_num,type_name_en,composite_market_value, business_adaptation_exponent,spread_exponent,activity_exponent,growth_exponent, health_exponent)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.id},#{item.typeName},#{item.typeNum},
+            #{item.typeNameEn},#{item.compositeMarketValue},
+            #{item.businessAdaptationExponent},#{item.spreadExponent},
+            #{item.activityExponent}, #{item.growthExponent}, #{item.healthExponent})
+        </foreach>
+    </insert>
 
     <select id="selectListTypeList" parameterType="ListType" resultMap="ListTypeResult">
         <include refid="selectListTypeVo"/>
         <where>  
             <if test="typeName != null  and typeName != ''"> and type_name like concat('%', #{typeName}, '%')</if>
+            <if test="typeNum != null  and typeNum != ''"> and type_num = #{typeNum}</if>
             <if test="typeNameEn != null  and typeNameEn != ''"> and type_name_en = #{typeNameEn}</if>
             <if test="compositeMarketValue != null "> and composite_market_value = #{compositeMarketValue}</if>
             <if test="businessAdaptationExponent != null "> and business_adaptation_exponent = #{businessAdaptationExponent}</if>
@@ -44,6 +69,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">id,</if>
             <if test="typeName != null">type_name,</if>
+            <if test="typeNum != null">type_num,</if>
             <if test="typeNameEn != null">type_name_en,</if>
             <if test="compositeMarketValue != null">composite_market_value,</if>
             <if test="businessAdaptationExponent != null">business_adaptation_exponent,</if>
@@ -55,6 +81,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">#{id},</if>
             <if test="typeName != null">#{typeName},</if>
+            <if test="typeNum != null">#{typeNum},</if>
             <if test="typeNameEn != null">#{typeNameEn},</if>
             <if test="compositeMarketValue != null">#{compositeMarketValue},</if>
             <if test="businessAdaptationExponent != null">#{businessAdaptationExponent},</if>
@@ -69,6 +96,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         update list_type
         <trim prefix="SET" suffixOverrides=",">
             <if test="typeName != null">type_name = #{typeName},</if>
+            <if test="typeNum != null">type_num = #{typeNum},</if>
             <if test="typeNameEn != null">type_name_en = #{typeNameEn},</if>
             <if test="compositeMarketValue != null">composite_market_value = #{compositeMarketValue},</if>
             <if test="businessAdaptationExponent != null">business_adaptation_exponent = #{businessAdaptationExponent},</if>

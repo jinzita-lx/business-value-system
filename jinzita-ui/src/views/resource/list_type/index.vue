@@ -9,6 +9,14 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
+      <el-form-item label="榜单数量" prop="typeNum">
+        <el-input
+          v-model="queryParams.typeNum"
+          placeholder="请输入榜单数量"
+          clearable
+          @keyup.enter.native="handleQuery"
+        />
+      </el-form-item>
       <el-form-item label="榜单英文名" label-width="120" prop="typeNameEn">
         <el-input
           v-model="queryParams.typeNameEn"
@@ -80,11 +88,16 @@
 
     <el-table v-loading="loading" :data="list_typeList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="主键" align="center" prop="id" />
-      <el-table-column label="类型名称" align="center" prop="typeName" />
-      <el-table-column label="榜单英文名" align="center" prop="typeNameEn" />
+      <el-table-column label="编号" align="center" prop="id" />
+      <el-table-column label="类型名称" width="80" align="center" prop="typeName" />
+      <el-table-column label="榜单数量" align="center" prop="typeNum" />
+      <el-table-column label="榜单英文名" align="center" prop="typeNameEn" >
+        <template slot-scope="scope">
+          {{ scope.row.typeNameEn || '-' }}
+        </template>
+      </el-table-column>
       <el-table-column label="综合营销价值" align="center" prop="compositeMarketValue" />
-      <el-table-column label="商业适应度指数" align="center" prop="businessAdaptationExponent" />
+      <el-table-column label="商业适应度指数" width="120" align="center" prop="businessAdaptationExponent" />
       <el-table-column label="传播指数" align="center" prop="spreadExponent" />
       <el-table-column label="活跃度指数" align="center" prop="activityExponent" />
       <el-table-column label="成长指数" align="center" prop="growthExponent" />
@@ -190,6 +203,7 @@ export default {
         pageNum: 1,
         pageSize: 10,
         typeName: null,
+        typeNum: null,
         typeNameEn: null,
         compositeMarketValue: null,
         businessAdaptationExponent: null,
@@ -307,8 +321,11 @@ export default {
       }, `list_type_${new Date().getTime()}.xlsx`)
     },
     async reloadData() {
-      await reloadListType();
-      this.$message.success('刷新成功')
+      const res = await reloadListType();
+      if(res.code === 200) {
+        this.$message.success('刷新成功')
+      }
+      this.handleQuery()
     }
   }
 };
