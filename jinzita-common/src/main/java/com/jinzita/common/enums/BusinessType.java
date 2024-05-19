@@ -56,4 +56,9 @@ public enum BusinessType
      * 清空数据
      */
     CLEAN,
+
+    /**
+     * 刷新数据
+     */
+    RELOAD
 }

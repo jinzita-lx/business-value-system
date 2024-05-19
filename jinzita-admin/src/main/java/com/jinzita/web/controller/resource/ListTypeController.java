@@ -101,4 +101,13 @@ public class ListTypeController extends BaseController
     {
         return toAjax(listTypeService.deleteListTypeByIds(ids));
     }
+
+
+    @Log(title = "榜单类型", businessType = BusinessType.RELOAD)
+    @GetMapping("/reload")
+    public AjaxResult reload() {
+        AjaxResult ajaxResult = AjaxResult.success();
+        ajaxResult.put("data", "success");
+        return ajaxResult;
+    }
 }

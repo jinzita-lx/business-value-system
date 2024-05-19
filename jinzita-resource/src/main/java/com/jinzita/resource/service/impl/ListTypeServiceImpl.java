@@ -90,4 +90,10 @@ public class ListTypeServiceImpl implements IListTypeService
     {
         return listTypeMapper.deleteListTypeById(id);
     }
+
+    @Override
+    public int reloadListTypeList() {
+
+        return 0;
+    }
 }

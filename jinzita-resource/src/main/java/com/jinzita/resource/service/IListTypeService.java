@@ -58,4 +58,10 @@ public interface IListTypeService
      * @return 结果
      */
     public int deleteListTypeById(Long id);
+
+    /**
+     * 刷新榜单列表信息
+     * @return
+     */
+    public int reloadListTypeList();
 }

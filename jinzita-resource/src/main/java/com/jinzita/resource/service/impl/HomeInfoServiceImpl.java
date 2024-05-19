@@ -104,9 +104,6 @@ public class HomeInfoServiceImpl implements IHomeInfoService
         try {
             int res = homeInfoMapper.insertHomeInfoList(homeInfoList);
             System.out.println(res);
-//            for (HomeInfo homeInfo : homeInfoList) {
-//                updateHomeInfo(homeInfo);
-//            }
             return 1;
         } catch (Exception e) {
             System.out.println(e.getMessage());

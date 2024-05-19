@@ -42,3 +42,10 @@ export function delList_type(id) {
     method: 'delete'
   })
 }
+
+export function reloadListType() {
+  return request({
+    url: '/resource/list_type/reload',
+    method: 'get',
+  })
+}

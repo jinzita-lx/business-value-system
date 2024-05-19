@@ -96,11 +96,11 @@ public class HomeInfoController extends BaseController
         return toAjax(homeInfoService.deleteHomeInfoByIds(ids));
     }
 
+    @Log(title = "主页信息", businessType = BusinessType.RELOAD)
     @GetMapping("/reload")
     public AjaxResult reload() {
-        int res = homeInfoService.reloadHomeInfoList();
         AjaxResult ajaxResult = AjaxResult.success();
-        ajaxResult.put("data", res);
+        ajaxResult.put("data", homeInfoService.reloadHomeInfoList());
         return ajaxResult;
     }
 }

@@ -320,7 +320,7 @@ export default {
     },
     async reloadData() {
       await reloadHome();
-      this.$message('更新成功');
+      this.$message.success('更新成功');
       this.handleQuery();
     }
   }

@@ -9,58 +9,10 @@
           @keyup.enter.native="handleQuery"
         />
       </el-form-item>
-      <el-form-item label="榜单英文名" prop="typeNameEn">
+      <el-form-item label="榜单英文名" label-width="120" prop="typeNameEn">
         <el-input
           v-model="queryParams.typeNameEn"
           placeholder="请输入榜单英文名"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="综合营销价值" prop="compositeMarketValue">
-        <el-input
-          v-model="queryParams.compositeMarketValue"
-          placeholder="请输入综合营销价值"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="商业适应度指数" prop="businessAdaptationExponent">
-        <el-input
-          v-model="queryParams.businessAdaptationExponent"
-          placeholder="请输入商业适应度指数"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="传播指数" prop="spreadExponent">
-        <el-input
-          v-model="queryParams.spreadExponent"
-          placeholder="请输入传播指数"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="活跃度指数" prop="activityExponent">
-        <el-input
-          v-model="queryParams.activityExponent"
-          placeholder="请输入活跃度指数"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="成长指数" prop="growthExponent">
-        <el-input
-          v-model="queryParams.growthExponent"
-          placeholder="请输入成长指数"
-          clearable
-          @keyup.enter.native="handleQuery"
-        />
-      </el-form-item>
-      <el-form-item label="健康指数" prop="healthExponent">
-        <el-input
-          v-model="queryParams.healthExponent"
-          placeholder="请输入健康指数"
           clearable
           @keyup.enter.native="handleQuery"
         />
@@ -114,6 +66,15 @@
           v-hasPermi="['resource:list_type:export']"
         >导出</el-button>
       </el-col>
+      <el-col :span="1.5">
+        <el-button
+          plain
+          icon="el-icon-refresh"
+          size="mini"
+          @click="reloadData"
+          v-hasPermi="['resource:home:export']"
+        >更新数据</el-button>
+      </el-col>
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
 
@@ -147,7 +108,7 @@
         </template>
       </el-table-column>
     </el-table>
-    
+
     <pagination
       v-show="total>0"
       :total="total"
@@ -193,7 +154,14 @@
 </template>
 
 <script>
-import { listList_type, getList_type, delList_type, addList_type, updateList_type } from "@/api/resource/list_type";
+import {
+  listList_type,
+  getList_type,
+  delList_type,
+  addList_type,
+  updateList_type,
+  reloadListType
+} from '@/api/resource/list_type'
 
 export default {
   name: "List_type",
@@ -337,6 +305,10 @@ export default {
       this.download('resource/list_type/export', {
         ...this.queryParams
       }, `list_type_${new Date().getTime()}.xlsx`)
+    },
+    async reloadData() {
+      await reloadListType();
+      this.$message.success('刷新成功')
     }
   }
 };
