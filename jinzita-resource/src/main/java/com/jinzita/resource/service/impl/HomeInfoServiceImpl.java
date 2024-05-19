@@ -102,9 +102,7 @@ public class HomeInfoServiceImpl implements IHomeInfoService
     public int reloadHomeInfoList() {
         List<HomeInfo> homeInfoList = homeInfoMapper.selectHomeInfoFromValueList();
         try {
-            int res = homeInfoMapper.insertHomeInfoList(homeInfoList);
-            System.out.println(res);
-            return 1;
+            return homeInfoMapper.insertHomeInfoList(homeInfoList);
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return 0;

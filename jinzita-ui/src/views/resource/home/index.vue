@@ -319,8 +319,10 @@ export default {
       }, `home_${new Date().getTime()}.xlsx`)
     },
     async reloadData() {
-      await reloadHome();
-      this.$message.success('更新成功');
+      const res = await reloadHome();
+      if(res.data === 200) {
+        this.$message.success('更新成功');
+      }
       this.handleQuery();
     }
   }
