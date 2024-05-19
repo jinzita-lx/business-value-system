@@ -4,5 +4,5 @@ import com.jinzita.resource.domain.HomeCount;
 
 public interface IHomeDataService {
 
-    public HomeCount HomeCount(Integer userId);
+    public HomeCount HomeCount();
 }

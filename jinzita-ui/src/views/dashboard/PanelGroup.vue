@@ -9,7 +9,7 @@
           <div class="card-panel-text">账号数量</div>
           <count-to
             :start-val="0"
-            :end-val="102400"
+            :end-val="homeCount.accountNumber"
             :duration="2600"
             class="card-panel-num"
           />
@@ -26,7 +26,7 @@
           <div class="card-panel-text">榜单类型</div>
           <count-to
             :start-val="0"
-            :end-val="81212"
+            :end-val="homeCount.indicatorType"
             :duration="3000"
             class="card-panel-num"
           />个
@@ -42,7 +42,7 @@
           <div class="card-panel-text">指标种类</div>
           <count-to
             :start-val="0"
-            :end-val="9280"
+            :end-val="homeCount.listType"
             :duration="3200"
             class="card-panel-num"
           />种
@@ -58,7 +58,7 @@
           <div class="card-panel-text">用户数量</div>
           <count-to
             :start-val="0"
-            :end-val="13600"
+            :end-val="homeCount.userNumber"
             :duration="3600"
             class="card-panel-num"
           />个
@@ -76,14 +76,25 @@ export default {
   components: {
     CountTo,
   },
+  data() {
+    return {
+      homeCount: {
+        accountNumber: 0,
+        indicatorType: 0,
+        listType: 0,
+        userNumber: 0,
+      }
+    }
+  },
   methods: {
     handleSetLineChartData(type) {
       this.$emit("handleSetLineChartData", type);
     },
     async getHomeCount() {
-      const homeCount = await GetHomeCount();
-      console.log(homeCount);
-
+      const res = await GetHomeCount();
+      if(res.code === 200) {
+        this.homeCount = res.data;
+      }
     }
   },
   mounted() {

@@ -42,6 +42,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{item.businessAdaptationExponent},#{item.spreadExponent},
             #{item.activityExponent}, #{item.growthExponent}, #{item.healthExponent})
         </foreach>
+        on duplicate key update
+        type_name = values(type_name),
+        type_num = values(type_num),
+        type_name_en = values(type_name_en),
+        composite_market_value = values(composite_market_value),
+        business_adaptation_exponent = values(business_adaptation_exponent),
+        spread_exponent = values(spread_exponent),
+        activity_exponent = values(activity_exponent),
+        growth_exponent = values(growth_exponent),
+        health_exponent = values(health_exponent)
     </insert>
 
     <select id="selectListTypeList" parameterType="ListType" resultMap="ListTypeResult">

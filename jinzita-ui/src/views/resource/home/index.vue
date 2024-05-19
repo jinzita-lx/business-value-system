@@ -112,13 +112,24 @@
 
     <el-table v-loading="loading" :data="homeList" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center" />
-      <el-table-column label="编号" align="center" prop="id" />
+      <el-table-column label="编号" align="center" prop="id" width="50" />
       <el-table-column label="作者" align="center" prop="author" />
-      <el-table-column label="性别" align="center" prop="gender" />
-      <el-table-column label="个人简介" align="center" prop="introduction" />
-      <el-table-column label="主页链接" align="center" prop="homeLink" />
-      <el-table-column label="周期类型" align="center" prop="periodType" />
-      <el-table-column label="榜单类型" align="center" prop="listType" />
+      <el-table-column label="性别" align="center" prop="gender" width="50" />
+      <el-table-column
+        label="个人简介"
+        align="center"
+        prop="introduction"
+        width="300"
+      />
+      <el-table-column
+        label="主页链接"
+        align="center"
+        prop="homeLink"
+        width="300"
+      >
+      </el-table-column>
+      <el-table-column label="周期类型" align="center" prop="periodType" width="100" />
+      <el-table-column label="榜单类型" align="center" prop="listType" width="100" />
       <el-table-column label="操作" align="center" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button

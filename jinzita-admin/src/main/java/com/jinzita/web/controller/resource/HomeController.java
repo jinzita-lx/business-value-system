@@ -1,7 +1,10 @@
 package com.jinzita.web.controller.resource;
 
 import com.jinzita.common.core.controller.BaseController;
+import com.jinzita.common.core.domain.AjaxResult;
 import com.jinzita.resource.domain.HomeCount;
+import com.jinzita.resource.service.IHomeDataService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,15 +20,22 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/home")
 public class HomeController extends BaseController {
 
+    @Autowired
+    private IHomeDataService homeDataService;
 
     @GetMapping("/count")
-    public HomeCount getHomeCount() {
-        HomeCount homeCount = new HomeCount();
-        homeCount.setUserNumber(1000L);
-        homeCount.setAccountNumber(1000L);
-        homeCount.setIndicatorType(1000L);
-        homeCount.setListType(1000L);
-        return homeCount;
+    public AjaxResult getHomeCount() {
+        AjaxResult ajaxResult = AjaxResult.success();
+        HomeCount homeCount = homeDataService.HomeCount();
+        ajaxResult.put("data", homeCount);
+        return ajaxResult;
+    }
+
+    @GetMapping("/line_chart")
+    public AjaxResult getLineChart() {
+        AjaxResult ajaxResult = AjaxResult.success();
+        ajaxResult.put("data", "");
+        return ajaxResult;
     }
 
 }

@@ -96,7 +96,7 @@ public class ListTypeServiceImpl implements IListTypeService
         List<ListType> listTypeList = listTypeMapper.selectListTypeFormValueList();
         for (int i = 0; i < listTypeList.size(); i++) {
             listTypeList.get(i).setId((long) (i+1));
-            System.out.println((long) i+1);
+            System.out.println(listTypeList.get(i));
         }
         try {
             return listTypeMapper.reloadListTypeList(listTypeList);

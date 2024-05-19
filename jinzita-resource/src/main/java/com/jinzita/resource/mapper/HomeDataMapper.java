@@ -2,11 +2,11 @@ package com.jinzita.resource.mapper;
 
 public interface HomeDataMapper {
 
-    public int selectAccountNumber();
+    public Long selectAccountNumber();
 
-    public int selectListType();
+    public Long selectListType();
 
-    public int selectUserNumber();
+    public Long selectUserNumber();
 
-    public int selectIndicatorType();
+    public Long selectIndicatorType();
 }
