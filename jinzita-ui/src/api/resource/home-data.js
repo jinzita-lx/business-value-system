@@ -20,3 +20,10 @@ export function GetPieChart() {
     method: 'get',
   })
 }
+
+export function GetRaddarChart() {
+  return request({
+    url: 'home/raddar_chart',
+    method: 'get'
+  })
+}

@@ -46,4 +46,11 @@ public class HomeController extends BaseController {
         return ajaxResult;
     }
 
+    @GetMapping("/raddar_chart")
+    public AjaxResult getRaddarChart() {
+        AjaxResult ajaxResult = AjaxResult.success();
+        ajaxResult.put("data", homeDataService.GetRaddarChartData());
+        return ajaxResult;
+    }
+
 }

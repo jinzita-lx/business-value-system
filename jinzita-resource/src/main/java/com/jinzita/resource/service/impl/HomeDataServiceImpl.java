@@ -43,4 +43,14 @@ public class HomeDataServiceImpl implements IHomeDataService {
     public List<ListType> GetPieChartData() {
         return homeDataMapper.selectAllListTypeList();
     }
+
+    @Override
+    public LineChartData GetRaddarChartData() {
+        List<ListType> listTypeList = homeDataMapper.selectAllListTypeList();
+        List<BusinessValueIndicators> businessValueIndicatorList = homeDataMapper.selectAllBusinessValueIndicators();
+        LineChartData lineChartData = new LineChartData();
+        lineChartData.setListTypeList(listTypeList);
+        lineChartData.setBusinessValueIndicatorList(businessValueIndicatorList);
+        return lineChartData;
+    }
 }

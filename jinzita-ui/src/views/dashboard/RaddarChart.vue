@@ -6,6 +6,7 @@
 import * as echarts from 'echarts'
 require('echarts/theme/macarons') // echarts theme
 import resize from './mixins/resize'
+import { GetRaddarChart } from '@/api/resource/home-data'
 
 const animationDuration = 3000
 
@@ -28,8 +29,16 @@ export default {
   },
   data() {
     return {
-      chart: null
+      chart: null,
+      businessValueList: ['compositeMarketValue', 'businessAdaptationExponent', 'spreadExponent', 'activityExponent', 'growthExponent', 'healthExponent'],
+      businessValueIndicatorList: [],
+      listTypeList: [],
+      indicatorData: [],
+      seriesData: [],
     }
+  },
+  created() {
+    this.initData()
   },
   mounted() {
     this.$nextTick(() => {
@@ -44,9 +53,33 @@ export default {
     this.chart = null
   },
   methods: {
+    async initData() {
+      const res = await GetRaddarChart();
+      if(res.code === 200) {
+        console.log(res.data)
+        this.businessValueIndicatorList = res.data.businessValueIndicatorList;
+        this.listTypeList = res.data.listTypeList;
+        this.businessValueIndicatorList.map((item, index) => {
+          this.indicatorData[index] = {
+            name: item.indicatorName,
+            max: item.indicatorMax
+          }
+        })
+        this.listTypeList.map((item, index) => {
+          this.seriesData[index] = {
+            value: this.businessValueList.map(valueKey => item[valueKey]),
+            name: item.typeName
+          }
+        })
+        this.seriesData.sort((a, b) => b.value.reduce(this.reducer) - a.value.reduce(this.reducer))
+        this.initChart()
+      }
+    },
+    reducer(x, y) {
+      return x + y;
+    },
     initChart() {
       this.chart = echarts.init(this.$el, 'macarons')
-
       this.chart.setOption({
         tooltip: {
           trigger: 'axis',
@@ -68,19 +101,13 @@ export default {
               shadowOffsetY: 15
             }
           },
-          indicator: [
-            { name: 'Sales', max: 10000 },
-            { name: 'Administration', max: 20000 },
-            { name: 'Information Techology', max: 20000 },
-            { name: 'Customer Support', max: 20000 },
-            { name: 'Development', max: 20000 },
-            { name: 'Marketing', max: 20000 }
-          ]
+          indicator: this.indicatorData
         },
         legend: {
           left: 'center',
+          type: 'scroll',
           bottom: '10',
-          data: ['Allocated Budget', 'Expected Spending', 'Actual Spending']
+          data: this.seriesData.map(item => item.name).sort(() => -1)
         },
         series: [{
           type: 'radar',
@@ -94,20 +121,7 @@ export default {
               opacity: 1
             }
           },
-          data: [
-            {
-              value: [5000, 7000, 12000, 11000, 15000, 14000],
-              name: 'Allocated Budget'
-            },
-            {
-              value: [4000, 9000, 15000, 15000, 13000, 11000],
-              name: 'Expected Spending'
-            },
-            {
-              value: [5500, 11000, 12000, 15000, 12000, 12000],
-              name: 'Actual Spending'
-            }
-          ],
+          data: this.seriesData,
           animationDuration: animationDuration
         }]
       })

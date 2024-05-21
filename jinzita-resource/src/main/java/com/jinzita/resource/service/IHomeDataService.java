@@ -13,4 +13,6 @@ public interface IHomeDataService {
     public LineChartData GetlineChartData();
 
     public List<ListType> GetPieChartData();
+
+    public LineChartData GetRaddarChartData();
 }
