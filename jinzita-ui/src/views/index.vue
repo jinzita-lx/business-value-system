@@ -19,7 +19,7 @@
             flex: 1;
           "
         >
-          <line-chart :chart-data="lineChartData" />
+          <line-chart />
         </el-row>
         <el-row :gutter="32" style="flex: 1">
           <el-col :xs="24" :sm="24" :lg="8" style="height: 100%">
@@ -52,10 +52,7 @@ import BarChart from "./dashboard/BarChart";
 import logoSvg from "../layout/components/Sidebar/logoSvg.vue";
 
 const lineChartData = {
-  newVisitis: {
-    expectedData: [100, 120, 161, 134, 105, 160, 165],
-    actualData: [120, 82, 91, 154, 162, 140, 145],
-  },
+  newVisitis: {},
   messages: {
     expectedData: [200, 192, 120, 144, 160, 130, 140],
     actualData: [180, 160, 151, 106, 145, 150, 130],

@@ -6,6 +6,7 @@
 import * as echarts from 'echarts'
 require('echarts/theme/macarons') // echarts theme
 import resize from './mixins/resize'
+import { GetLineChart } from '@/api/resource/home-data'
 // 每种榜单类型的商业价值均值
 // 横坐标 榜单类型
 export default {
@@ -27,14 +28,17 @@ export default {
       type: Boolean,
       default: true
     },
-    chartData: {
-      type: Object,
-      required: true
-    }
   },
   data() {
     return {
-      chart: null
+      animationEasingList: ['quadraticIn', 'quadraticOut', 'quadraticInOut', 'cubicIn', 'cubicOut', 'cubicInOut', 'quarticIn', 'quarticOut'],
+      businessValueList: ['compositeMarketValue', 'businessAdaptationExponent', 'spreadExponent', 'activityExponent', 'growthExponent', 'healthExponent'],
+      chart: null,
+      indicatorList: null,
+      xAxisData: [],
+      seriesList: [],
+      legendData: [],
+      listTypeList: null,
     }
   },
   watch: {
@@ -45,10 +49,10 @@ export default {
       }
     }
   },
+  created() {
+    this.initData();
+  },
   mounted() {
-    this.$nextTick(() => {
-      this.initChart()
-    })
   },
   beforeDestroy() {
     if (!this.chart) {
@@ -58,14 +62,42 @@ export default {
     this.chart = null
   },
   methods: {
+    async initData() {
+      const res = await GetLineChart()
+      if(res.code === 200) {
+        this.indicatorList = res.data.businessValueIndicatorList;
+        this.listTypeList = res.data.listTypeList;
+
+        this.indicatorList.map((item, index) => {
+          this.legendData[index] = item.indicatorName
+          this.seriesList[index] = {
+            name: item.indicatorName,
+            smooth: true,
+            type: 'line',
+            data: [],
+            animationDuration: 2800,
+            animationEasing: this.animationEasingList[index]
+          }
+        })
+        this.listTypeList.map((item, index) => {
+          this.xAxisData[index] = item.typeName
+          this.legendData.map((legend, idx) => {
+            this.seriesList[idx].data[index] = item[this.businessValueList[idx]]
+          })
+        })
+
+
+        this.initChart()
+      }
+    },
     initChart() {
       this.chart = echarts.init(this.$el, 'macarons')
-      this.setOptions(this.chartData)
+      this.setOptions()
     },
-    setOptions({ expectedData, actualData } = {}) {
+    setOptions() {
       this.chart.setOption({
         xAxis: {
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          data: this.xAxisData,
           boundaryGap: false,
           axisTick: {
             show: false
@@ -91,45 +123,9 @@ export default {
           }
         },
         legend: {
-          data: ['expected', 'actual']
+          data: this.legendData
         },
-        series: [
-          {
-          name: 'expected', itemStyle: {
-            normal: {
-              color: '#FF005A',
-              lineStyle: {
-                color: '#FF005A',
-                width: 2
-              }
-            }
-          },
-          smooth: true,
-          type: 'line',
-          data: expectedData,
-          animationDuration: 2800,
-          animationEasing: 'cubicInOut'
-        },
-        {
-          name: 'actual',
-          smooth: true,
-          type: 'line',
-          itemStyle: {
-            normal: {
-              color: '#3888fa',
-              lineStyle: {
-                color: '#3888fa',
-                width: 2
-              },
-              areaStyle: {
-                color: '#f3f8ff'
-              }
-            }
-          },
-          data: actualData,
-          animationDuration: 2800,
-          animationEasing: 'quadraticOut'
-        }]
+        series: this.seriesList
       })
     }
   }

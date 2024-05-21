@@ -6,3 +6,10 @@ export function GetHomeCount() {
     method: 'GET',
   })
 }
+
+export function GetLineChart() {
+  return request({
+    url: 'home/line_chart',
+    method: 'get',
+  })
+}

@@ -4,6 +4,7 @@ import com.jinzita.common.core.controller.BaseController;
 import com.jinzita.common.core.domain.AjaxResult;
 import com.jinzita.resource.domain.HomeCount;
 import com.jinzita.resource.service.IHomeDataService;
+import com.jinzita.resource.service.IListTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,7 +35,7 @@ public class HomeController extends BaseController {
     @GetMapping("/line_chart")
     public AjaxResult getLineChart() {
         AjaxResult ajaxResult = AjaxResult.success();
-        ajaxResult.put("data", "");
+        ajaxResult.put("data", homeDataService.GetlineChartData());
         return ajaxResult;
     }
 

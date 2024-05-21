@@ -15,4 +15,11 @@
     <select id="selectUserNumber">
         select count(*) from sys_user
     </select>
+
+    <select id="selectAllListTypeList" resultMap="com.jinzita.resource.mapper.ListTypeMapper.ListTypeResult">
+        select * from list_type
+    </select>
+    <select id="selectAllBusinessValueIndicators" resultMap="com.jinzita.resource.mapper.BusinessValueIndicatorsMapper.BusinessValueIndicatorsResult">
+        select * from business_value_indicators
+    </select>
 </mapper>
