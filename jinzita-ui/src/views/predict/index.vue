@@ -285,7 +285,7 @@ export default {
               </div>
             </div>
           </el-card>
-          <el-card>卡片二</el-card>
+          <el-card header="预测结果"></el-card>
         </el-col>
       </el-row>
     </el-card>

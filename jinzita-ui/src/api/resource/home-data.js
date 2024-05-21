@@ -13,3 +13,10 @@ export function GetLineChart() {
     method: 'get',
   })
 }
+
+export function GetPieChart() {
+  return request({
+    url: 'home/pie_chart',
+    method: 'get',
+  })
+}

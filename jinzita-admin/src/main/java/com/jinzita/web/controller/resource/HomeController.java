@@ -39,4 +39,11 @@ public class HomeController extends BaseController {
         return ajaxResult;
     }
 
+    @GetMapping("/pie_chart")
+    public AjaxResult getPieChart() {
+        AjaxResult ajaxResult = AjaxResult.success();
+        ajaxResult.put("data", homeDataService.GetPieChartData());
+        return ajaxResult;
+    }
+
 }

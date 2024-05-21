@@ -9,6 +9,7 @@ import com.jinzita.resource.service.IHomeDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -36,5 +37,10 @@ public class HomeDataServiceImpl implements IHomeDataService {
         lineChartData.setListTypeList(listTypeList);
         lineChartData.setBusinessValueIndicatorList(businessValueIndicatorList);
         return lineChartData;
+    }
+
+    @Override
+    public List<ListType> GetPieChartData() {
+        return homeDataMapper.selectAllListTypeList();
     }
 }

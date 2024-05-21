@@ -6,6 +6,7 @@
 import * as echarts from 'echarts'
 require('echarts/theme/macarons') // echarts theme
 import resize from './mixins/resize'
+import { GetPieChart } from '@/api/resource/home-data'
 // 商业价值占比
 export default {
   mixins: [resize],
@@ -25,13 +26,12 @@ export default {
   },
   data() {
     return {
-      chart: null
+      chart: null,
+      seriesData: [],
     }
   },
-  mounted() {
-    this.$nextTick(() => {
-      this.initChart()
-    })
+  created() {
+    this.initData();
   },
   beforeDestroy() {
     if (!this.chart) {
@@ -41,6 +41,20 @@ export default {
     this.chart = null
   },
   methods: {
+    async initData() {
+      const res = await GetPieChart();
+      if(res.code === 200) {
+        console.log(res.data)
+        res.data.map((item, index) => {
+          this.seriesData[index] = {
+            value: item.typeNum,
+            name: item.typeName
+          }
+        })
+        this.seriesData.sort((a, b) => a.value - b.value)
+      }
+      this.initChart();
+    },
     initChart() {
       this.chart = echarts.init(this.$el, 'macarons')
 
@@ -49,11 +63,11 @@ export default {
           trigger: 'item',
           formatter: '{a} <br/>{b} : {c} ({d}%)'
         },
-        legend: {
-          left: 'center',
-          bottom: '10',
-          data: ['Industries', 'Technology', 'Forex', 'Gold', 'Forecasts']
-        },
+        // legend: {
+        //   left: 'center',
+        //   bottom: '10',
+        //   data: this.seriesData.map(item => item.name)
+        // },
         series: [
           {
             name: '商业价值占比',
@@ -61,13 +75,7 @@ export default {
             roseType: 'radius',
             radius: [15, 95],
             center: ['50%', '38%'],
-            data: [
-              { value: 320, name: 'Industries' },
-              { value: 240, name: 'Technology' },
-              { value: 149, name: 'Forex' },
-              { value: 100, name: 'Gold' },
-              { value: 59, name: 'Forecasts' }
-            ],
+            data: this.seriesData,
             animationEasing: 'cubicInOut',
             animationDuration: 2600
           }
