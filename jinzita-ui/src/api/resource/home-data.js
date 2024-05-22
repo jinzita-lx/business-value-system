@@ -27,3 +27,11 @@ export function GetRaddarChart() {
     method: 'get'
   })
 }
+
+export function GetBarChart() {
+  return request({
+    url: 'home/bar_chart',
+    method: 'get'
+  })
+}
+

@@ -79,16 +79,22 @@ export default {
             animationEasing: this.animationEasingList[index]
           }
         })
+        this.listTypeList.sort(this.compareFn)
         this.listTypeList.map((item, index) => {
           this.xAxisData[index] = item.typeName
-          this.legendData.map((legend, idx) => {
-            this.seriesList[idx].data[index] = item[this.businessValueList[idx]]
+          this.businessValueList.map((legend, idx) => {
+            this.seriesList[idx].data[index] = item[legend]
           })
         })
 
 
         this.initChart()
       }
+    },
+    compareFn(a, b) {
+      const aSum = this.businessValueList.reduce((sum, value) => sum + a[value], 0)
+      const bSum = this.businessValueList.reduce((sum, value) => sum + b[value], 0)
+      return aSum - bSum
     },
     initChart() {
       this.chart = echarts.init(this.$el, 'macarons')

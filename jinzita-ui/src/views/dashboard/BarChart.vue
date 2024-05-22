@@ -4,10 +4,15 @@
 
 <script>
 import * as echarts from 'echarts'
-require('echarts/theme/macarons') // echarts theme
+import 'echarts/theme/macarons'// echarts theme
 import resize from './mixins/resize'
+import { GetBarChart } from '@/api/resource/home-data'
 
-const animationDuration = 6000
+// 横坐标榜单类型
+// 纵坐标整体价值
+// 每一条是一种价值指标
+
+const animationDuration = 4000
 
 export default {
   mixins: [resize],
@@ -27,13 +32,16 @@ export default {
   },
   data() {
     return {
-      chart: null
+      chart: null,
+      businessValueList: ['compositeMarketValue', 'businessAdaptationExponent', 'spreadExponent', 'activityExponent', 'growthExponent', 'healthExponent'],
+      indicatorList: [],
+      listTypeList: [],
+      xAxisData: [],
+      seriesList: []
     }
   },
-  mounted() {
-    this.$nextTick(() => {
-      this.initChart()
-    })
+  created() {
+    this.initData();
   },
   beforeDestroy() {
     if (!this.chart) {
@@ -43,6 +51,38 @@ export default {
     this.chart = null
   },
   methods: {
+    async initData() {
+      const res = await GetBarChart();
+      if(res.code === 200) {
+        this.indicatorList = res.data.businessValueIndicatorList;
+        this.listTypeList = res.data.listTypeList;
+
+        this.indicatorList.map((item, index) => {
+          this.seriesList[index] = {
+            name: item.indicatorName,
+            type: 'bar',
+            stack: 'vistors',
+            barWidth: '60%',
+            data: [],
+            animationDuration
+          }
+        })
+        this.listTypeList = this.listTypeList.sort(this.compareFn)
+        this.listTypeList.map((item, index) => {
+          this.xAxisData[index] = item.typeName
+          this.businessValueList.map((legend, idx) => {
+            this.seriesList[idx].data[index] = item[legend]
+          })
+        })
+        this.initChart()
+      }
+
+    },
+    compareFn(a, b) {
+      const aSum = this.businessValueList.reduce((sum, value) => sum + a[value], 0)
+      const bSum = this.businessValueList.reduce((sum, value) => sum + b[value], 0)
+      return bSum - aSum
+    },
     initChart() {
       this.chart = echarts.init(this.$el, 'macarons')
 
@@ -62,7 +102,7 @@ export default {
         },
         xAxis: [{
           type: 'category',
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          data: this.xAxisData,
           axisTick: {
             alignWithLabel: true
           }
@@ -73,28 +113,7 @@ export default {
             show: false
           }
         }],
-        series: [{
-          name: 'pageA',
-          type: 'bar',
-          stack: 'vistors',
-          barWidth: '60%',
-          data: [79, 52, 200, 334, 390, 330, 220],
-          animationDuration
-        }, {
-          name: 'pageB',
-          type: 'bar',
-          stack: 'vistors',
-          barWidth: '60%',
-          data: [80, 52, 200, 334, 390, 330, 220],
-          animationDuration
-        }, {
-          name: 'pageC',
-          type: 'bar',
-          stack: 'vistors',
-          barWidth: '60%',
-          data: [30, 52, 200, 334, 390, 330, 220],
-          animationDuration
-        }]
+        series: this.seriesList
       })
     }
   }

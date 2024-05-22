@@ -56,7 +56,6 @@ export default {
     async initData() {
       const res = await GetRaddarChart();
       if(res.code === 200) {
-        console.log(res.data)
         this.businessValueIndicatorList = res.data.businessValueIndicatorList;
         this.listTypeList = res.data.listTypeList;
         this.businessValueIndicatorList.map((item, index) => {

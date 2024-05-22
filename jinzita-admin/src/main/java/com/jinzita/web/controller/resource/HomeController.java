@@ -53,4 +53,11 @@ public class HomeController extends BaseController {
         return ajaxResult;
     }
 
+    @GetMapping("/bar_chart")
+    public AjaxResult getBarChart() {
+        AjaxResult ajaxResult = AjaxResult.success();
+        ajaxResult.put("data", homeDataService.GetBarChartData());
+        return ajaxResult;
+    }
+
 }

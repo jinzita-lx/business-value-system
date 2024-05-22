@@ -9,7 +9,6 @@ import com.jinzita.resource.service.IHomeDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -46,6 +45,16 @@ public class HomeDataServiceImpl implements IHomeDataService {
 
     @Override
     public LineChartData GetRaddarChartData() {
+        List<ListType> listTypeList = homeDataMapper.selectAllListTypeList();
+        List<BusinessValueIndicators> businessValueIndicatorList = homeDataMapper.selectAllBusinessValueIndicators();
+        LineChartData lineChartData = new LineChartData();
+        lineChartData.setListTypeList(listTypeList);
+        lineChartData.setBusinessValueIndicatorList(businessValueIndicatorList);
+        return lineChartData;
+    }
+
+    @Override
+    public LineChartData GetBarChartData() {
         List<ListType> listTypeList = homeDataMapper.selectAllListTypeList();
         List<BusinessValueIndicators> businessValueIndicatorList = homeDataMapper.selectAllBusinessValueIndicators();
         LineChartData lineChartData = new LineChartData();
