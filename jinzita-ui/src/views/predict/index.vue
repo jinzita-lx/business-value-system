@@ -3,9 +3,13 @@ import store from "@/store";
 import PredictLogin from "@/views/predict/login";
 import { everyDayLoginSystem } from "@/api/predict/login";
 import AwemeCard from "@/views/predict/components/aweme-card/index.vue";
-import { getUserData, getUserVideo, predictUserData } from '@/api/predict/userInfo'
-import { user_data, user_post_v4 } from '@/views/predict/mock'
-import RaddarChart from './components/RaddarChart/RaddarChart'
+import {
+  getUserData,
+  getUserVideo,
+  predictUserData,
+} from "@/api/predict/userInfo";
+import { user_data, user_post_v4 } from "@/views/predict/mock";
+import RaddarChart from "./components/RaddarChart/RaddarChart";
 export default {
   name: "index",
   components: { RaddarChart, AwemeCard, PredictLogin },
@@ -24,7 +28,7 @@ export default {
       predictStartTime: null,
       predictTime: null,
       predictResult: null,
-      parseHomeLinkEnd: '',
+      parseHomeLinkEnd: "",
       predictEndTime: null,
       aweme_list: [],
       predictAwemeList: [],
@@ -33,7 +37,14 @@ export default {
       home_link: "",
       accountId: "",
       predictLogInfo: [],
-      businessValueList: ['compositeMarketValue', 'businessAdaptationExponent', 'spreadExponent', 'activityExponent', 'growthExponent', 'healthExponent'],
+      businessValueList: [
+        "compositeMarketValue",
+        "businessAdaptationExponent",
+        "spreadExponent",
+        "activityExponent",
+        "growthExponent",
+        "healthExponent",
+      ],
     };
   },
   methods: {
@@ -97,7 +108,7 @@ export default {
           this.user_data = resArr[0].data;
           this.aweme_list = resArr[1].data.aweme_list;
           this.showParseInfo = true;
-          this.parseHomeLinkEnd = this.home_link
+          this.parseHomeLinkEnd = this.home_link;
         }
       } catch (e) {
         this.$message.error(e);
@@ -120,46 +131,47 @@ export default {
     },
     async predictHandle() {
       this.predictStartTime = new Date();
-      this.predictLoading = true
-      let timer = null
+      this.predictLoading = true;
+      let timer = null;
       await new Promise((resolve) => {
-          timer = setInterval(() => {
+        timer = setInterval(() => {
           const nowTime = new Date();
           this.predictTime = nowTime - this.predictStartTime;
-            if(this.predictAwemeList.length >= this.aweme_list.length) {
-              resolve()
-            } else {
-              if(this.predictTime % 800 < 100) {
-                this.predictAwemeList.push({
-                  ...this.aweme_list[this.predictAwemeList.length],
-                  predictTime: new Date(),
-                })
-              }
+          if (this.predictAwemeList.length >= this.aweme_list.length) {
+            resolve();
+          } else {
+            if (this.predictTime % 800 < 100) {
+              this.predictAwemeList.push({
+                ...this.aweme_list[this.predictAwemeList.length],
+                predictTime: new Date(),
+              });
             }
-        }, 200)
-
-      })
+          }
+        }, 200);
+      });
       clearInterval(timer);
-      const res = await predictUserData(this.predictAwemeList)
+      const res = await predictUserData(this.predictAwemeList);
       this.predictResult = res.data;
-      const chartData = this.businessValueList.map(item => this.predictResult[item])
+      const chartData = this.businessValueList.map(
+        (item) => this.predictResult[item]
+      );
       this.$refs.raddarChart.initChart(chartData);
       this.predictButtonDisable = true;
       this.predictLoading = false;
       this.predictEndTime = new Date();
-    }
+    },
   },
   computed: {
     predictLoadingText() {
-      let str = ''
+      let str = "";
       for (let i = 0; i < this.predictTime / 300; i++) {
-        str += '. '
-        if(str.length > 7) {
-          str = ''
+        str += ". ";
+        if (str.length > 7) {
+          str = "";
         }
       }
-      return str
-    }
+      return str;
+    },
   },
   created() {},
 };
@@ -196,7 +208,11 @@ export default {
                       />
                     </el-col>
                     <el-col :span="5">
-                      <el-button @click="handleParse" :disabled="home_link === parseHomeLinkEnd">点击解析</el-button>
+                      <el-button
+                        @click="handleParse"
+                        :disabled="home_link === parseHomeLinkEnd"
+                        >点击解析</el-button
+                      >
                     </el-col>
                   </el-row>
                   <div v-if="showParseInfo" class="parse-info">
@@ -238,9 +254,11 @@ export default {
                             <span>抖音号: {{ user_data.user.unique_id }}</span>
                           </span>
                           <span class="douyin-user-age">
-<!--                            <span v-if="user_data.user.gender" class="douyin-user-age-gender"><svg width="12" height="12" fill="none" xmlns="http://www.w3.org/2000/svg" class="" viewBox="0 0 12 12" style="margin-right: 4px;"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.25a.75.75 0 000 1.5h1.09L7.54 4.298a.757.757 0 00-.058.066 4 4 0 10.968 1.112.752.752 0 00.15-.117L10.25 3.71V5a.75.75 0 001.5 0V2a.75.75 0 00-.75-.75H8zM5 10a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" fill="#168EF9"></path></svg></span>-->
-<!--                            <span  v-if="!user_data.user.gender" class="douyin-user-age-gender"><svg width="12" height="12" fill="none" xmlns="http://www.w3.org/2000/svg" class="" viewBox="0 0 12 12" style="margin-right: 4px;"><mask id="woman_svg__a" maskUnits="userSpaceOnUse" x="-2" y="-2" width="16" height="16" style="mask-type: alpha;"><path fill="#C4C4C4" d="M-2-2h16v16H-2z"></path></mask><g mask="url(#woman_svg__a)" stroke="#F5588E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.2" cy="4.896" r="3.25"></circle><path d="M1.617 10.511l3.115-3.115M1.904 7.396l2.828 2.829"></path></g></svg></span>-->
-                            <span v-if="user_data.user.user_age >= 0">{{ user_data.user.user_age }}岁</span>
+                            <!--                            <span v-if="user_data.user.gender" class="douyin-user-age-gender"><svg width="12" height="12" fill="none" xmlns="http://www.w3.org/2000/svg" class="" viewBox="0 0 12 12" style="margin-right: 4px;"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.25a.75.75 0 000 1.5h1.09L7.54 4.298a.757.757 0 00-.058.066 4 4 0 10.968 1.112.752.752 0 00.15-.117L10.25 3.71V5a.75.75 0 001.5 0V2a.75.75 0 00-.75-.75H8zM5 10a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" fill="#168EF9"></path></svg></span>-->
+                            <!--                            <span  v-if="!user_data.user.gender" class="douyin-user-age-gender"><svg width="12" height="12" fill="none" xmlns="http://www.w3.org/2000/svg" class="" viewBox="0 0 12 12" style="margin-right: 4px;"><mask id="woman_svg__a" maskUnits="userSpaceOnUse" x="-2" y="-2" width="16" height="16" style="mask-type: alpha;"><path fill="#C4C4C4" d="M-2-2h16v16H-2z"></path></mask><g mask="url(#woman_svg__a)" stroke="#F5588E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.2" cy="4.896" r="3.25"></circle><path d="M1.617 10.511l3.115-3.115M1.904 7.396l2.828 2.829"></path></g></svg></span>-->
+                            <span v-if="user_data.user.user_age >= 0"
+                              >{{ user_data.user.user_age }}岁</span
+                            >
                           </span>
                         </div>
                         <div class="douyin-description">
@@ -301,22 +319,37 @@ export default {
                   </div>
                 </el-card>
               </el-col>
-              <el-col
-                :span="12"
-                style="height: 100%;"
-              >
-                <el-card header="预测模块" class="predict-module" :body-style="{ flex: 1, display: 'flex',flexDirection: 'column', overflow: 'hidden' }">
+              <el-col :span="12" style="height: 100%">
+                <el-card
+                  header="预测模块"
+                  class="predict-module"
+                  :body-style="{
+                    flex: 1,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    overflow: 'hidden',
+                  }"
+                >
                   <div class="predict-module-button">
-                    <el-button @click="predictHandle" :disabled="predictButtonDisable" :loading="predictLoading">点击预测</el-button>
+                    <el-button
+                      @click="predictHandle"
+                      :disabled="predictButtonDisable"
+                      :loading="predictLoading"
+                      >点击预测</el-button
+                    >
                   </div>
                   <div class="predict-module-log">
                     <div v-for="logItem in predictAwemeList">
-                      {{ logItem.predictTime.toLocaleString() }} [INFO] 解析视频《{{ logItem.desc }}》
+                      {{ logItem.predictTime.toLocaleString() }} [INFO]
+                      解析视频《{{ logItem.desc }}》
                     </div>
                     <div class="log-loading" v-if="predictLoading">
-                      预测中{{predictLoadingText}}
+                      预测中{{ predictLoadingText }}
                     </div>
-                    <div class="log-loading" v-if="!predictLoading && predictAwemeList.length">
+                    <div
+                      class="log-loading"
+                      v-if="!predictLoading && predictAwemeList.length"
+                    >
                       预测结束，共耗时：{{ predictTime / 1000 }} 秒
                     </div>
                   </div>
@@ -353,9 +386,15 @@ export default {
               </div>
             </div>
           </el-card>
-          <el-card header="预测结果" class="predict-result" :body-style="{
-            flex: 1, display: 'flex', flexDirection: 'column'
-          }">
+          <el-card
+            header="预测结果"
+            class="predict-result"
+            :body-style="{
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
+            }"
+          >
             <div class="predict-result-body" v-loading="predictLoading">
               <RaddarChart ref="raddarChart" />
             </div>
@@ -570,7 +609,7 @@ export default {
             color: #1e1e1e;
           }
           &::-webkit-scrollbar-track {
-            border-bottom-right-radius:  20px;
+            border-bottom-right-radius: 20px;
             border-top-right-radius: 20px;
             background-color: #dddddd;
           }

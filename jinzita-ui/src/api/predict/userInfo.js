@@ -49,7 +49,7 @@ export function getUserVideo(cookie, data) {
 export function predictUserData(data) {
   return request({
     method: 'post',
-    url: 'http://localhost:8088/predict',
+    url: window.location.protocol+ '//' + window.location.hostname + ':' + '8088/predict',
     data,
   })
 }
