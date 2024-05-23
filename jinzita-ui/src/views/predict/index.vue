@@ -88,11 +88,11 @@ export default {
       }
       this.loadingParseInfo = true;
       try {
-        // const resArr = await this.parseDouYinUser().catch((err) => {
-        //   this.$message.error(err);
-        //   return [];
-        // });
-        const resArr = [user_data, user_post_v4];
+        const resArr = await this.parseDouYinUser().catch((err) => {
+          this.$message.error(err);
+          return [];
+        });
+        // const resArr = [user_data, user_post_v4];
         if (resArr.length === 2) {
           this.user_data = resArr[0].data;
           this.aweme_list = resArr[1].data.aweme_list;
