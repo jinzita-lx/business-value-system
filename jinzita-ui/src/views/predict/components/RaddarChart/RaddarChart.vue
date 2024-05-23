@@ -31,14 +31,17 @@ export default {
     return {
       chart: null,
       businessValueList: ['compositeMarketValue', 'businessAdaptationExponent', 'spreadExponent', 'activityExponent', 'growthExponent', 'healthExponent'],
+      legendData: ['综合营销价值', '商业适应指数', '传播指数', '活跃度指数', '成长指数', '健康指数'],
       businessValueIndicatorList: [],
       listTypeList: [],
       indicatorData: [],
       seriesData: [],
     }
   },
-  created() {
-    this.initData()
+  mounted() {
+    this.$nextTick(() => {
+      this.initChart()
+    })
   },
   beforeDestroy() {
     if (!this.chart) {
@@ -48,27 +51,6 @@ export default {
     this.chart = null
   },
   methods: {
-    async initData() {
-      const res = await GetRaddarChart();
-      if(res.code === 200) {
-        this.businessValueIndicatorList = res.data.businessValueIndicatorList;
-        this.listTypeList = res.data.listTypeList;
-        this.businessValueIndicatorList.map((item, index) => {
-          this.indicatorData[index] = {
-            name: item.indicatorName,
-            max: item.indicatorMax
-          }
-        })
-        this.listTypeList.map((item, index) => {
-          this.seriesData[index] = {
-            value: this.businessValueList.map(valueKey => item[valueKey]),
-            name: item.typeName
-          }
-        })
-        this.seriesData.sort((a, b) => b.value.reduce(this.reducer) - a.value.reduce(this.reducer))
-        this.initChart()
-      }
-    },
     reducer(x, y) {
       return x + y;
     },
@@ -101,7 +83,7 @@ export default {
           left: 'center',
           type: 'scroll',
           bottom: '10',
-          data: this.seriesData.map(item => item.name).sort(() => -1)
+          data: this.legendData
         },
         series: [{
           type: 'radar',

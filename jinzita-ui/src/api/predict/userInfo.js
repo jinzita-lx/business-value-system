@@ -1,4 +1,5 @@
 import { douyinRequest } from '@/api/predict/util'
+import request from '@/utils/request'
 
 /**
  * 获取用户信息
@@ -41,6 +42,14 @@ export function getUserVideo(cookie, data) {
     method: 'POST',
     url: '/douyin/user_post_v4',
     cookie,
+    data,
+  })
+}
+
+export function predictUserData(data) {
+  return request({
+    method: 'post',
+    url: 'http://localhost:8088/predict',
     data,
   })
 }

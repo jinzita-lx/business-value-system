@@ -3,10 +3,12 @@ import store from "@/store";
 import PredictLogin from "@/views/predict/login";
 import { everyDayLoginSystem } from "@/api/predict/login";
 import AwemeCard from "@/views/predict/components/aweme-card/index.vue";
-import { getUserData, getUserVideo } from "@/api/predict/userInfo";
+import { getUserData, getUserVideo, predictUserData } from '@/api/predict/userInfo'
+import { user_data, user_post_v4 } from '@/views/predict/mock'
+import RaddarChart from '@/views/dashboard/RaddarChart.vue'
 export default {
   name: "index",
-  components: { AwemeCard, PredictLogin },
+  components: { RaddarChart, AwemeCard, PredictLogin },
   data() {
     return {
       predictState: store.state.predict,
@@ -17,11 +19,20 @@ export default {
       loadingParseInfo: false,
       user_data: {},
       activeMenuMy: true,
+      predictLoading: false,
+      predictButtonDisable: true,
+      predictStartTime: null,
+      predictTime: null,
+      predictResult: {},
+      parseHomeLinkEnd: '',
+      predictEndTime: null,
       aweme_list: [],
+      predictAwemeList: [],
       max_cursor: "0",
-      count: 18,
+      count: 500,
       home_link: "",
       accountId: "",
+      predictLogInfo: [],
     };
   },
   methods: {
@@ -62,6 +73,7 @@ export default {
     parseHomeLink() {
       if (this.home_link.startsWith("https://www.douyin.com/user")) {
         const token = this.home_link.split("/").splice(-1)[0];
+        this.predictButtonDisable = false;
         return token.split("?")[0];
       } else {
         return undefined;
@@ -75,16 +87,16 @@ export default {
       }
       this.loadingParseInfo = true;
       try {
-        const resArr = await this.parseDouYinUser().catch((err) => {
-          this.$message.error(err);
-          console.log(err);
-          return [];
-        });
-        // const resArr = [user_data, user_post_v4];
+        // const resArr = await this.parseDouYinUser().catch((err) => {
+        //   this.$message.error(err);
+        //   return [];
+        // });
+        const resArr = [user_data, user_post_v4];
         if (resArr.length === 2) {
           this.user_data = resArr[0].data;
           this.aweme_list = resArr[1].data.aweme_list;
           this.showParseInfo = true;
+          this.parseHomeLinkEnd = this.home_link
         }
       } catch (e) {
         this.$message.error(e);
@@ -105,9 +117,48 @@ export default {
         phone: "",
       });
     },
+    async predictHandle() {
+      this.predictStartTime = new Date();
+      this.predictLoading = true
+      let timer = null
+      await new Promise((resolve) => {
+          timer = setInterval(() => {
+          const nowTime = new Date();
+          this.predictTime = nowTime - this.predictStartTime;
+            if(this.predictAwemeList.length >= this.aweme_list.length) {
+              resolve()
+            } else {
+              if(this.predictTime % 100 < 100) {
+                this.predictAwemeList.push({
+                  ...this.aweme_list[this.predictAwemeList.length],
+                  predictTime: new Date(),
+                })
+              }
+            }
+        }, 200)
+
+      })
+      clearInterval(timer);
+      const res = await predictUserData(this.predictAwemeList)
+      this.predictResult = res.data;
+      this.predictButtonDisable = true;
+      this.predictLoading = false;
+      this.predictEndTime = new Date();
+    }
+  },
+  computed: {
+    predictLoadingText() {
+      let str = ''
+      for (let i = 0; i < this.predictTime / 300; i++) {
+        str += '. '
+        if(str.length > 7) {
+          str = ''
+        }
+      }
+      return str
+    }
   },
   created() {},
-  mounted() {},
 };
 </script>
 
@@ -142,7 +193,7 @@ export default {
                       />
                     </el-col>
                     <el-col :span="5">
-                      <el-button @click="handleParse">点击解析</el-button>
+                      <el-button @click="handleParse" :disabled="home_link === parseHomeLinkEnd">点击解析</el-button>
                     </el-col>
                   </el-row>
                   <div v-if="showParseInfo" class="parse-info">
@@ -183,9 +234,10 @@ export default {
                           <span class="douyin-account-id">
                             <span>抖音号: {{ user_data.user.unique_id }}</span>
                           </span>
-                          <span>年龄: </span>
                           <span class="douyin-user-age">
-                            <span>{{ user_data.user.user_age }}岁</span>
+<!--                            <span v-if="user_data.user.gender" class="douyin-user-age-gender"><svg width="12" height="12" fill="none" xmlns="http://www.w3.org/2000/svg" class="" viewBox="0 0 12 12" style="margin-right: 4px;"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.25a.75.75 0 000 1.5h1.09L7.54 4.298a.757.757 0 00-.058.066 4 4 0 10.968 1.112.752.752 0 00.15-.117L10.25 3.71V5a.75.75 0 001.5 0V2a.75.75 0 00-.75-.75H8zM5 10a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" fill="#168EF9"></path></svg></span>-->
+<!--                            <span  v-if="!user_data.user.gender" class="douyin-user-age-gender"><svg width="12" height="12" fill="none" xmlns="http://www.w3.org/2000/svg" class="" viewBox="0 0 12 12" style="margin-right: 4px;"><mask id="woman_svg__a" maskUnits="userSpaceOnUse" x="-2" y="-2" width="16" height="16" style="mask-type: alpha;"><path fill="#C4C4C4" d="M-2-2h16v16H-2z"></path></mask><g mask="url(#woman_svg__a)" stroke="#F5588E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.2" cy="4.896" r="3.25"></circle><path d="M1.617 10.511l3.115-3.115M1.904 7.396l2.828 2.829"></path></g></svg></span>-->
+                            <span v-if="user_data.user.user_age >= 0">{{ user_data.user.user_age }}岁</span>
                           </span>
                         </div>
                         <div class="douyin-description">
@@ -250,14 +302,27 @@ export default {
                 :span="12"
                 style="height: 100%;"
               >
-                <el-card header="预测模块" class="predict-module" :body-style="{  height: 'calc(100% - 44px)' }">
-                  <el-button>点击预测</el-button>
+                <el-card header="预测模块" class="predict-module" :body-style="{ flex: 1, display: 'flex',flexDirection: 'column', overflow: 'hidden' }">
+                  <div class="predict-module-button">
+                    <el-button @click="predictHandle" :disabled="predictButtonDisable" :loading="predictLoading">点击预测</el-button>
+                  </div>
+                  <div class="predict-module-log">
+                    <div v-for="logItem in predictAwemeList">
+                      {{ logItem.predictTime.toLocaleString() }} [INFO] 解析视频《{{ logItem.desc }}》
+                    </div>
+                    <div class="log-loading" v-if="predictLoading">
+                      预测中{{predictLoadingText}}
+                    </div>
+                    <div class="log-loading" v-if="!predictLoading && predictAwemeList.length">
+                      预测结束，共耗时：{{ predictTime / 1000 }} 秒
+                    </div>
+                  </div>
                 </el-card>
               </el-col>
             </el-row>
           </el-card>
         </el-col>
-        <el-col :span="6" style="height: 100%">
+        <el-col :span="6" class="predict-right" style="height: 100%">
           <el-card style="margin-bottom: 20px">
             <template #header>
               <span>每日签到</span>
@@ -285,7 +350,13 @@ export default {
               </div>
             </div>
           </el-card>
-          <el-card header="预测结果"></el-card>
+          <el-card header="预测结果" class="predict-result" :body-style="{
+            flex: 1, display: 'flex', flexDirection: 'column'
+          }">
+            <div class="predict-result-body" v-loading="predictLoading">
+              <RaddarChart />
+            </div>
+          </el-card>
         </el-col>
       </el-row>
     </el-card>
@@ -436,7 +507,7 @@ export default {
             font-size: 12px;
             line-height: 20px;
             .douyin-account-id {
-              margin-right: 20px;
+              margin-right: 10px;
             }
             .douyin-user-age {
               background: rgba(242, 242, 244, 0.08);
@@ -447,6 +518,10 @@ export default {
               font-size: 12px;
               line-height: 20px;
               display: flex;
+              .douyin-user-age-gender {
+                display: flex;
+                align-items: center;
+              }
             }
           }
           .douyin-description {
@@ -474,22 +549,59 @@ export default {
       }
       .predict-module {
         height: 100%;
+        display: flex;
+        flex-direction: column;
+        .predict-module-button {
+          text-align: center;
+        }
+
+        .predict-module-log {
+          flex: 1;
+          margin: 10px;
+          padding: 10px;
+          border-radius: 10px;
+          background-color: #dddddd;
+          overflow-y: auto;
+          .log-loading {
+            font-size: 20px;
+            color: #1e1e1e;
+          }
+          &::-webkit-scrollbar-track {
+            border-bottom-right-radius:  20px;
+            border-top-right-radius: 20px;
+            background-color: #dddddd;
+          }
+        }
       }
     }
-    .every-day-card {
+
+    .predict-right {
       display: flex;
-      align-items: stretch;
-      justify-content: space-between;
-      .predict-user-avatar {
-        width: 70%;
-        border-radius: 50%;
-      }
-      .predict-user-info {
-        width: 30%;
+      flex-direction: column;
+      .every-day-card {
         display: flex;
-        justify-content: space-around;
-        align-items: center;
+        align-items: stretch;
+        justify-content: space-between;
+        .predict-user-avatar {
+          width: 70%;
+          border-radius: 50%;
+        }
+        .predict-user-info {
+          width: 30%;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          flex-direction: column;
+        }
+      }
+      .predict-result {
+        display: flex;
         flex-direction: column;
+        flex: 1;
+        .predict-result-body {
+          flex: 1;
+          display: grid;
+        }
       }
     }
   }
