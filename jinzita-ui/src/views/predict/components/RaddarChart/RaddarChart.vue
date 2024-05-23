@@ -24,24 +24,19 @@ export default {
     },
     height: {
       type: String,
-      default: '100%'
+      default: '600px'
     }
   },
   data() {
     return {
       chart: null,
-      businessValueList: ['compositeMarketValue', 'businessAdaptationExponent', 'spreadExponent', 'activityExponent', 'growthExponent', 'healthExponent'],
-      legendData: ['综合营销价值', '商业适应指数', '传播指数', '活跃度指数', '成长指数', '健康指数'],
-      businessValueIndicatorList: [],
-      listTypeList: [],
-      indicatorData: [],
-      seriesData: [],
+      chartData: null,
     }
   },
   mounted() {
-    this.$nextTick(() => {
-      this.initChart()
-    })
+    if(this.chartData) {
+      this.renderChart()
+    }
   },
   beforeDestroy() {
     if (!this.chart) {
@@ -54,7 +49,7 @@ export default {
     reducer(x, y) {
       return x + y;
     },
-    initChart() {
+    renderChart() {
       this.chart = echarts.init(this.$el, 'macarons')
       this.chart.setOption({
         tooltip: {
@@ -77,16 +72,20 @@ export default {
               shadowOffsetY: 15
             }
           },
-          indicator: this.indicatorData
-        },
-        legend: {
-          left: 'center',
-          type: 'scroll',
-          bottom: '10',
-          data: this.legendData
+          indicator: [
+            { name: '综合营销价值', max: 100 },
+            { name:  '商业适应指数', max: 100 },
+            { name: '传播指数', max: 100 },
+            { name:  '活跃度指数', max: 100 },
+            { name: '成长指数', max: 100 },
+            { name: '健康指数', max: 100 },
+          ]
         },
         series: [{
           type: 'radar',
+          tooltip: {
+            trigger: 'item'
+          },
           symbolSize: 0,
           areaStyle: {
             normal: {
@@ -97,10 +96,19 @@ export default {
               opacity: 1
             }
           },
-          data: this.seriesData,
+          data: [
+            {
+              value: this.chartData,
+              name: '预测结果'
+            }
+          ],
           animationDuration: animationDuration
         }]
       })
+    },
+    initChart(chartData) {
+      this.chartData = chartData;
+      this.renderChart()
     }
   }
 }

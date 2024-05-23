@@ -5,7 +5,7 @@ import { everyDayLoginSystem } from "@/api/predict/login";
 import AwemeCard from "@/views/predict/components/aweme-card/index.vue";
 import { getUserData, getUserVideo, predictUserData } from '@/api/predict/userInfo'
 import { user_data, user_post_v4 } from '@/views/predict/mock'
-import RaddarChart from '@/views/dashboard/RaddarChart.vue'
+import RaddarChart from './components/RaddarChart/RaddarChart'
 export default {
   name: "index",
   components: { RaddarChart, AwemeCard, PredictLogin },
@@ -23,7 +23,7 @@ export default {
       predictButtonDisable: true,
       predictStartTime: null,
       predictTime: null,
-      predictResult: {},
+      predictResult: null,
       parseHomeLinkEnd: '',
       predictEndTime: null,
       aweme_list: [],
@@ -33,6 +33,7 @@ export default {
       home_link: "",
       accountId: "",
       predictLogInfo: [],
+      businessValueList: ['compositeMarketValue', 'businessAdaptationExponent', 'spreadExponent', 'activityExponent', 'growthExponent', 'healthExponent'],
     };
   },
   methods: {
@@ -128,7 +129,7 @@ export default {
             if(this.predictAwemeList.length >= this.aweme_list.length) {
               resolve()
             } else {
-              if(this.predictTime % 100 < 100) {
+              if(this.predictTime % 800 < 100) {
                 this.predictAwemeList.push({
                   ...this.aweme_list[this.predictAwemeList.length],
                   predictTime: new Date(),
@@ -141,6 +142,8 @@ export default {
       clearInterval(timer);
       const res = await predictUserData(this.predictAwemeList)
       this.predictResult = res.data;
+      const chartData = this.businessValueList.map(item => this.predictResult[item])
+      this.$refs.raddarChart.initChart(chartData);
       this.predictButtonDisable = true;
       this.predictLoading = false;
       this.predictEndTime = new Date();
@@ -354,7 +357,7 @@ export default {
             flex: 1, display: 'flex', flexDirection: 'column'
           }">
             <div class="predict-result-body" v-loading="predictLoading">
-              <RaddarChart />
+              <RaddarChart ref="raddarChart" />
             </div>
           </el-card>
         </el-col>
@@ -600,7 +603,7 @@ export default {
         flex: 1;
         .predict-result-body {
           flex: 1;
-          display: grid;
+          height: 100%;
         }
       }
     }
