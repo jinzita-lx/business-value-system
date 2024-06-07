@@ -20,10 +20,10 @@ class AdaBoostModel:
         model.fit(self.x_train, self.y_train)
         joblib.dump(model, 'static/model/model.pkl')
 
-    def predict(self, aweme_list):
+    def predict(self, req_data):
+        total = req_data['total']
         model = joblib.load('static/model/model.pkl')
-        length = len(aweme_list)
-        x_predict = self.dataset_x[(length * 100) % len(self.dataset_x)]
+        x_predict = self.dataset_x[(total * 100) % len(self.dataset_x)]
         y_predict = model.predict([x_predict])
         predict_result = {
             "businessAdaptationExponent": int(x_predict[0]),

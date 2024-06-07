@@ -25,8 +25,8 @@ def train():
 @app.route('/predict', methods=['POST'])
 def predict():
     ada_boost_model = AdaBoostModel()
-    aweme_list = request.json
-    predict_result = ada_boost_model.predict(aweme_list)
+    req_data = request.json
+    predict_result = ada_boost_model.predict(req_data)
     return {
         "code": 200,
         "msg": 'success',

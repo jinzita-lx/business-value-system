@@ -23,8 +23,8 @@ export default {
       })
       try {
         if(res.code === 200) {
-          await this.$store.dispatch('SetCookie', {cookie: res.data.authorization_token.token, phone: this.form.mobile});
-          this.$message.success('登录成功');
+          await this.$store.dispatch('SetCookie', {cookie: res.data.authorization_token, phone: this.form.mobile});
+          this.$message.success('登录成功，当前可用次数为'+ res.data.requests_remain);
         }
       } catch (e) {
         this.$message.error(e);

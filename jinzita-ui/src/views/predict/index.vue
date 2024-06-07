@@ -150,7 +150,10 @@ export default {
         }, 200);
       });
       clearInterval(timer);
-      const res = await predictUserData(this.predictAwemeList);
+      const res = await predictUserData({
+        aweme_list: this.predictAwemeList,
+        total: this.user_data.user.aweme_count,
+      });
       this.predictResult = res.data;
       const chartData = this.businessValueList.map(
         (item) => this.predictResult[item]
@@ -256,7 +259,7 @@ export default {
                           <span class="douyin-user-age">
                             <!--                            <span v-if="user_data.user.gender" class="douyin-user-age-gender"><svg width="12" height="12" fill="none" xmlns="http://www.w3.org/2000/svg" class="" viewBox="0 0 12 12" style="margin-right: 4px;"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.25a.75.75 0 000 1.5h1.09L7.54 4.298a.757.757 0 00-.058.066 4 4 0 10.968 1.112.752.752 0 00.15-.117L10.25 3.71V5a.75.75 0 001.5 0V2a.75.75 0 00-.75-.75H8zM5 10a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" fill="#168EF9"></path></svg></span>-->
                             <!--                            <span  v-if="!user_data.user.gender" class="douyin-user-age-gender"><svg width="12" height="12" fill="none" xmlns="http://www.w3.org/2000/svg" class="" viewBox="0 0 12 12" style="margin-right: 4px;"><mask id="woman_svg__a" maskUnits="userSpaceOnUse" x="-2" y="-2" width="16" height="16" style="mask-type: alpha;"><path fill="#C4C4C4" d="M-2-2h16v16H-2z"></path></mask><g mask="url(#woman_svg__a)" stroke="#F5588E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.2" cy="4.896" r="3.25"></circle><path d="M1.617 10.511l3.115-3.115M1.904 7.396l2.828 2.829"></path></g></svg></span>-->
-                            <span v-if="user_data.user.user_age >= 0"
+                            <span v-if="user_data.user.user_age && user_data.user.user_age > 0"
                               >{{ user_data.user.user_age }}岁</span
                             >
                           </span>
@@ -361,7 +364,7 @@ export default {
         <el-col :span="6" class="predict-right" style="height: 100%">
           <el-card style="margin-bottom: 20px">
             <template #header>
-              <span>每日签到</span>
+              <span>个人信息</span>
               <el-button
                 style="float: right; padding: 3px 0"
                 type="text"
@@ -374,15 +377,6 @@ export default {
               <div class="predict-user-info">
                 <div>{{ username }}</div>
                 <div>{{ predictState.userPhone }}</div>
-                <div>
-                  <el-button
-                    @click="everydayClick"
-                    :loading="everyClickLoading"
-                    :disabled="predictState.everyStatus"
-                  >
-                    {{ predictState.everyStatus ? "签过了" : "签到" }}
-                  </el-button>
-                </div>
               </div>
             </div>
           </el-card>

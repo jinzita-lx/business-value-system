@@ -74,17 +74,17 @@
           v-hasPermi="['monitor:logininfor:remove']"
         >清空</el-button>
       </el-col>
-      <el-col :span="1.5">
-        <el-button
-          type="primary"
-          plain
-          icon="el-icon-unlock"
-          size="mini"
-          :disabled="single"
-          @click="handleUnlock"
-          v-hasPermi="['monitor:logininfor:unlock']"
-        >解锁</el-button>
-      </el-col>
+<!--      <el-col :span="1.5">-->
+<!--        <el-button-->
+<!--          type="primary"-->
+<!--          plain-->
+<!--          icon="el-icon-unlock"-->
+<!--          size="mini"-->
+<!--          :disabled="single"-->
+<!--          @click="handleUnlock"-->
+<!--          v-hasPermi="['monitor:logininfor:unlock']"-->
+<!--        >解锁</el-button>-->
+<!--      </el-col>-->
       <el-col :span="1.5">
         <el-button
           type="warning"
